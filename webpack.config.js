@@ -68,6 +68,13 @@ const config = {
             filename: "index.html",
             
         }),
+        new HtmlWebpackPlugin({
+            inject : true,
+            minify : true,
+            template: "./src/legal_mentions.html",
+            filename: "legal_mentions.html",
+            
+        }),
         new MiniCssExtractPlugin({
             filename: "style.css",
         }),

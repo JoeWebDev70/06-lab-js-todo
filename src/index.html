@@ -1,7 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- preload font -->
+        <link rel="preload" as="font" href="./ressources/fonts/manrope_400.woff2" type="font/woff2" crossorigin="anonymous">
+        <link rel="preload" as="font" href="./ressources/fonts/manrope_700.woff2" type="font/woff2" crossorigin="anonymous">
+        <!-- preload image-->
+        <link rel="preload" as="image" href="./ressources/images/btn_dark_mode_50x50.webp"
+        imagesrcset="./ressources/images/btn_dark_mode_30x30.webp 30w, ./ressources/images/btn_dark_mode_50x50.webp 50w" imagesizes="(max-width: 1140px) 30px, 50px">
+        
+        <link rel="preload" as="image" href="./ressources/images/btn_light_mode_50x48.webp"
+        imagesrcset="./ressources/images/btn_light_mode_30x29.webp 30w, ./ressources/images/btn_light_mode_50x48.webp 50w" imagesizes="(max-width: 1140px) 30px, 50px">
+
+        <link rel="preload" as="image" href="./ressources/images/logo_495x205.webp"
+        imagesrcset="./ressources/images/logo_250x104.webp 250w, ./ressources/images/logo_495x205.webp 495w"
+        imagesizes="(max-width: 1140px) 250px, 495px">
+        <!-- favicon + preload-->
+        <link rel="preload" as="image" href="./ressources/images/favicon_50x50.webp" onload="this.rel='shortcut icon'">
+        <noscript>
+            <link rel="shortcut icon" sizes="50x50" href="./ressources/images/favicon_50x50.webp">
+        </noscript>
+
         <title>Webpack App</title>
     </head>
     <body>
