@@ -1,0 +1,34 @@
+$colorGreen: #DBE245;
+$colorYellow: #FBDC05;
+$colorOrange: #F9AE2E;
+$colorPink:#EC559D;
+$colorBlue: #00B5DE;
+$colorBLack: #000000;
+$colorWhite: #FFFFFF;
+$colorBgDark: #2C2C2C;
+$colorError: #E91139;
+$colorShadowLight : rgba(0, 0, 0, 0.25);
+
+
+@mixin Theme($theme: $colorWhite, $txtColor: $colorBLack){
+    background-color: $theme;
+    color: $txtColor;
+}
+
+
+@mixin BoxSizing($kindOfBox){
+    -webkit-box-sizing: $kindOfBox;
+    -moz-box-sizing: $kindOfBox;
+    box-sizing: $kindOfBox;
+}
+
+@mixin Appearance($howAppear){
+    -webkit-appearance: $howAppear;
+    -moz-appearance: $howAppear;
+    appearance: $howAppear;
+}
+
+
+@mixin BoxShadow($color: $colorShadowLight, $offset-x: -5px, $offset-y: 5px, $blur-radius: 5px, $spread-radius: 0){
+    box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+}

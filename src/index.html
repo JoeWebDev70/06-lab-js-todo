@@ -8,12 +8,6 @@
         <link rel="preload" as="font" href="./ressources/fonts/manrope_400.woff2" type="font/woff2" crossorigin="anonymous">
         <link rel="preload" as="font" href="./ressources/fonts/manrope_700.woff2" type="font/woff2" crossorigin="anonymous">
         <!-- preload image-->
-        <link rel="preload" as="image" href="./ressources/images/btn_dark_mode_50x50.webp"
-        imagesrcset="./ressources/images/btn_dark_mode_30x30.webp 30w, ./ressources/images/btn_dark_mode_50x50.webp 50w" imagesizes="(max-width: 1140px) 30px, 50px">
-        
-        <link rel="preload" as="image" href="./ressources/images/btn_light_mode_50x48.webp"
-        imagesrcset="./ressources/images/btn_light_mode_30x29.webp 30w, ./ressources/images/btn_light_mode_50x48.webp 50w" imagesizes="(max-width: 1140px) 30px, 50px">
-
         <link rel="preload" as="image" href="./ressources/images/logo_495x205.webp"
         imagesrcset="./ressources/images/logo_250x104.webp 250w, ./ressources/images/logo_495x205.webp 495w"
         imagesizes="(max-width: 1140px) 250px, 495px">
@@ -22,12 +16,15 @@
         <noscript>
             <link rel="shortcut icon" sizes="50x50" href="./ressources/images/favicon_50x50.webp">
         </noscript>
-
-        <title>Webpack App</title>
+        <!--meta tag google -->
+        <meta name="description" content="Exercise 6 of Javascript : To Do List">
+        <!--document title -->
+        <title>To Do List</title>
     </head>
-    <body>
-        <h1>Hello world!</h1>
-        <h2>Tip: Check your console</h2>
+    <body id="main_body" class="light_mode"> <!-- transition_out -->
+        <div id="main_div"></div>
+        <template>
+        </template>
     </body>
     
 </html>
