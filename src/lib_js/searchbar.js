@@ -60,6 +60,7 @@ if (formSearch != null) {
         } else {
             this.classList.remove('item_not_valid');
             inputSearch.placeholder = txtPlaceHolder;
+            //import search function here
         }
     });
 

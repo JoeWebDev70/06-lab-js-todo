@@ -1,5 +1,10 @@
 import {divSearchBar} from "./searchbar.js";
+import {titleDiv} from "./list_structure.js";
+import {listDiv} from "./list_structure.js";
+
+
 export const mainBody = document.querySelector("#main_body");
+
 const mainDiv = document.querySelector("#main_div");
 //STRUCTURE
 if (mainBody != null) {
@@ -36,8 +41,9 @@ if (mainBody != null) {
     //MAIN
     //insert yhe importing search bar in main
     mainMain.insertBefore(divSearchBar, mainDiv);
-    
-
+    //insert structure list in div in main
+    mainDiv.appendChild(titleDiv);
+    mainDiv.appendChild(listDiv);
 
     //FOOTER
     //create link for legal mentions
@@ -57,6 +63,8 @@ if (mainBody != null) {
     const imgLogoGithub = document.createElement("img");
     imgLogoGithub.src = "./ressources/images/github_25x25.webp";
     imgLogoGithub.alt = "Github logo";
+    imgLogoGithub.style.width = "25px";
+    imgLogoGithub.style.height = "25px";
     //create link on github
     const logoLinkedin = document.createElement("p");
     const linkLogoLinkedin = document.createElement("a");
@@ -64,6 +72,8 @@ if (mainBody != null) {
     const imgLogoLinkedin = document.createElement("img");
     imgLogoLinkedin.src = "./ressources/images/linkedin_25x21.webp";
     imgLogoLinkedin.alt = "Linkedin logo";
+    imgLogoLinkedin.style.width = "25px";
+    imgLogoLinkedin.style.height = "21px";
 
     //insert elements in footer
     mainFooter.appendChild(legalMentions);

@@ -2,6 +2,7 @@
 @import "./lib_scss/mixin_variables.scss";
 @import "./lib_scss/tooltip.scss";
 @import "./lib_scss/searchbar.scss";
+@import "./lib_scss/list_structure.scss";
 @import "./lib_scss/legal_mentions.scss";
 
 :root{
@@ -20,10 +21,14 @@ body{
 //GENERAL TYPOGRAPHY
 h1{
     margin: 0;
+    font-size: 36px;
+    font-weight: 700;
 }
 
 h2{
     margin: 0;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 h3{
@@ -48,14 +53,11 @@ a:hover{
     color: $colorPink;
     img{
         filter: $filterLogoHover;
-    
     }
 
     #m_img_princiaple{
         filter: $filterImgHover;
     }
-
-    
 }
 
 input{
@@ -98,6 +100,12 @@ header{
 
 #btn_mode:hover{
     filter: $filterImgHover;
+}
+
+#main_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer{

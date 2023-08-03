@@ -35,3 +35,11 @@ $filterLogoDark : invert(100%) sepia(100%) saturate(0%) hue-rotate(207deg) brigh
 @mixin BoxShadow($color: $colorShadowLight, $offset-x: -5px, $offset-y: 5px, $blur-radius: 5px, $spread-radius: 0){
     box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
 }
+
+@mixin BorderBtnAdd($color: $colorShadowLight){
+    border-top: solid 1px $color;
+    border-right: solid 1px $color;
+    border-bottom: none;
+    border-left: solid 1px $color;
+    border-radius: 10px;
+}

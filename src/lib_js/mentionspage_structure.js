@@ -107,6 +107,8 @@ if (mentionsBody != null) {
     const mImgLogoGithub = document.createElement("img");
     mImgLogoGithub.src = "./ressources/images/github_25x25.webp";
     mImgLogoGithub.alt = "Github logo";
+    mImgLogoGithub.style.width = "25px";
+    mImgLogoGithub.style.height = "25px";
     //create link on github
     const mLogoLinkedin = document.createElement("p");
     const mLinkLogoLinkedin = document.createElement("a");
@@ -114,6 +116,8 @@ if (mentionsBody != null) {
     const mImgLogoLinkedin = document.createElement("img");
     mImgLogoLinkedin.src = "./ressources/images/linkedin_25x21.webp";
     mImgLogoLinkedin.alt = "Linkedin logo";
+    mImgLogoLinkedin.style.width = "25px";
+    mImgLogoLinkedin.style.height = "25px";
 
     //insert elements in footer
     mentionsFooter.appendChild(mLegalMentions);
