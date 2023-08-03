@@ -1,4 +1,5 @@
-const mainBody = document.querySelector("#main_body");
+import {divSearchBar} from "./searchbar.js";
+export const mainBody = document.querySelector("#main_body");
 const mainDiv = document.querySelector("#main_div");
 //STRUCTURE
 if (mainBody != null) {
@@ -33,48 +34,9 @@ if (mainBody != null) {
     pImgPrincipale.appendChild(imgPrincipale);
 
     //MAIN
-    //create search bar
-    const divSearchBar = document.createElement("div");
-    divSearchBar.id = "search_bar";
-    //create form
-    const formSearch = document.createElement("form");
-    formSearch.id = "search_form";
-    formSearch.noValidate = true;
-    //create tooltip for label on input
-    const divTooltip = document.createElement("div");
-    divTooltip.classList.add("tooltip_container");
-    //create input for searching word
-    const inputSearch = document.createElement("input");
-    inputSearch.type = "text";
-    inputSearch.id = "input_search";
-    inputSearch.name = "input_search";
-    inputSearch.dataError = "Can't be blank!";
-    inputSearch.placeholder = "Search in your lists";
-    inputSearch.required = true;
-    //create label for input
-    const labelSearch = document.createElement("label");
-    labelSearch.for = "input_search";
-    labelSearch.textContent = "Enter your word";
-    labelSearch.classList.add("tooltip_content");
-    //create erase button
-    const btnErase = document.createElement("button");
-    btnErase.type = "button";
-    btnErase.id = "btn_erase";
-    btnErase.textContent = "X";
-    btnErase.classList.add("hide_item");
-    //create submit button
-    const btnSearch = document.createElement("button");
-    btnSearch.type = "submit";
-    btnSearch.id = "submit";
-
-    //insert elements in main
+    //insert yhe importing search bar in main
     mainMain.insertBefore(divSearchBar, mainDiv);
-    divSearchBar.appendChild(formSearch);
-    formSearch.appendChild(divTooltip);
-    divTooltip.appendChild(inputSearch);
-    divTooltip.appendChild(labelSearch);
-    formSearch.appendChild(btnErase);
-    formSearch.append(btnSearch);
+    
 
 
     //FOOTER
@@ -119,4 +81,3 @@ if (mainBody != null) {
     logoLinkedin.appendChild(linkLogoLinkedin);
     linkLogoLinkedin.appendChild(imgLogoLinkedin);
 }
-// mainBody.classList.add("dark_mode");

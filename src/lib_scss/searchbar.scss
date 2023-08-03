@@ -37,7 +37,7 @@ $searchWidth : 425px;
     opacity: 0.6;
 }
 
-.not_valid #input_search:invalid::placeholder {
+.item_not_valid #input_search:invalid::placeholder {
     color: $colorError;
     opacity: 1;
 }
@@ -76,6 +76,32 @@ $searchWidth : 425px;
     filter: invert(47%) sepia(52%) saturate(1338%) hue-rotate(299deg) brightness(96%) contrast(93%);
 }
 
+.item_hiden{
+    visibility: hidden;
+}
+
+.item_shown{
+    visibility: visible;
+}
+
+//DARK MODE
+.dark_mode #input_search {
+    background-color: $colorBgDark;
+    color: $colorWhite;
+    @include BoxShadow($colorShadowDark);
+}
+
+.dark_mode #input_search::placeholder {
+    color: $colorWhite;
+    opacity: 0.6;
+}
+
+.dark_mode #btn_erase , 
+.dark_mode #submit{
+    filter: $filterLogoDark;
+}
+
+//MEDIA QUERY
 @media screen and (max-width : 500px) {
     $searchWidth : 300px;
 

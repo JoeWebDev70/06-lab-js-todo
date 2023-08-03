@@ -8,7 +8,10 @@ $colorWhite: #FFFFFF;
 $colorBgDark: #2C2C2C;
 $colorError: #E91139;
 $colorShadowLight : rgba(0, 0, 0, 0.25);
-
+$colorShadowDark : rgba(255, 255, 255, 0.25);
+$filterLogoHover : invert(47%) sepia(52%) saturate(1338%) hue-rotate(299deg) brightness(96%) contrast(93%);
+$filterImgHover : invert(47%) sepia(52%) saturate(1338%) hue-rotate(299deg) brightness(116%) contrast(303%);
+$filterLogoDark : invert(100%) sepia(100%) saturate(0%) hue-rotate(207deg) brightness(103%) contrast(204%);
 
 @mixin Theme($theme: $colorWhite, $txtColor: $colorBLack){
     background-color: $theme;
