@@ -1,4 +1,6 @@
 
+//LEGAL MENTIONS
+
 #body_mentions{
     //for having footer always at bottom
     display: flex;
@@ -25,4 +27,8 @@
     p{
         margin-bottom: 25px;
     }
+}
+
+a:hover #m_img_princiaple{
+    filter: $filterImgHover;
 }

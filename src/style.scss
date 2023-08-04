@@ -1,9 +1,10 @@
 @import "./lib_scss/fonts.scss";
 @import "./lib_scss/mixin_variables.scss";
+@import "./lib_scss/mainpage.scss";
 @import "./lib_scss/tooltip.scss";
 @import "./lib_scss/searchbar.scss";
 @import "./lib_scss/list_structure.scss";
-@import "./lib_scss/legal_mentions.scss";
+@import "./lib_scss/mentionspage.scss";
 
 :root{
     font-size: 100%;
@@ -54,23 +55,12 @@ a:hover{
     img{
         filter: $filterLogoHover;
     }
-
-    #m_img_princiaple{
-        filter: $filterImgHover;
-    }
-}
-
-input{
-    font-family: 'Manrope';
-    font-size: 16px;
-    font-weight: 400;
 }
 
 //GENERAL CLASSES
 .hide_item{
     visibility: hidden;
 }
-
 
 //PAGE STRUCTURE 
 header{
@@ -84,29 +74,6 @@ header{
     }      
 }
 
-//button dark/light mode
-#btn_mode{
-    width: 50px;
-    height: 50px;
-    @include Appearance(none);
-    border: none;
-    background-color: transparent;
-    background-image: url("./ressources/images/btn_dark_mode_50x50.webp");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    cursor: pointer;
-}
-
-#btn_mode:hover{
-    filter: $filterImgHover;
-}
-
-#main_div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 footer{
     display: flex;
@@ -180,9 +147,24 @@ footer{
     body{
         padding: 30px;
     }
+}
 
-    #btn_mode{
-        width: 30px;
-        height: 30px;
+@media screen and (max-width: 750px) {
+    body{
+        font-size: 14px;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        // justify-content: space-between;
+        // align-items: center;
+        // margin-top: auto;
+        // div{
+        //     display: flex;
+        //     align-items: center;
+        //     gap: 15px;
+        // }
     }
 }

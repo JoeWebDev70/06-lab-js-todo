@@ -1,4 +1,7 @@
+// SEARCH BAR 
 $searchWidth : 425px;
+$searchHeight : 45px;
+$logoSize : 25px;
 
 #search_bar {
     margin-top: 75px;
@@ -10,13 +13,13 @@ $searchWidth : 425px;
 
 #search_form {
     width: $searchWidth;
-    height: 45px;
+    height: $searchHeight;
     position: relative;
 }
 
 #input_search {
     width: 100%;
-    height: 45px;
+    height: $searchHeight;
     padding: 0 20px;
     @include BoxSizing(border-box);
     border: 1px solid $colorBlue;
@@ -24,6 +27,9 @@ $searchWidth : 425px;
     @include BoxShadow();
     position: relative;
     text-indent: 15px;
+    font-family: 'Manrope';
+    font-size: 16px;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -44,10 +50,10 @@ $searchWidth : 425px;
 
 #btn_erase {
     z-index: 20;
-    width: 25px;
-    height: 25px;
+    width: $logoSize;
+    height: $logoSize;
     font-weight: 700;
-    transform: translate(calc($searchWidth - (25px * 2.8)), calc(-45px + (25px / 5)));
+    transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 5) - $searchHeight ));
     background-color: transparent;
     border: none;
     opacity: 0.6;
@@ -56,13 +62,14 @@ $searchWidth : 425px;
 
 #submit {
     z-index: 2;
-    width: 25px;
-    height: 25px;
-    transform: translate(calc($searchWidth - (25px * 2.5)), calc(-45px + (25px / 2)));
+    width: $logoSize;
+    height: $logoSize;
+    transform: translate(calc($searchWidth - ($logoSize * 2.5)), calc(($logoSize / 2.5)  - $searchHeight ));
     background-color: transparent;
     border: none;
     background-image: url("./ressources/images/magnifier_14x23.webp");
     background-repeat: no-repeat;
+    background-size: contain;
     cursor: pointer;
 }
 
@@ -104,17 +111,29 @@ $searchWidth : 425px;
 //MEDIA QUERY
 @media screen and (max-width : 500px) {
     $searchWidth : 300px;
+    $searchHeight : 35px;
+    $logoSize : 20px;
 
     #search_form {
         width: $searchWidth;
+        height: $searchHeight;
+    }
+
+    #input_search {
+        height: $searchHeight;
+        font-size: 14px;
     }
 
     #btn_erase {
-        transform: translate(calc($searchWidth - (25px * 2.5)), calc(-45px + (25px / 5)));
+        width: $logoSize;
+        height: $logoSize;
+        transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 5) - $searchHeight ));
     }
 
     #submit {
-        transform: translate(calc($searchWidth - (25px * 2.3)), calc(-45px + (25px / 2)));
+        width: $logoSize;
+        height: $logoSize;
+        transform: translate(calc($searchWidth - ($logoSize * 2.6)), calc(($logoSize / 2.5) - $searchHeight ));
     }
 
 }
@@ -127,11 +146,11 @@ $searchWidth : 425px;
     }
 
     #btn_erase {
-        transform: translate(calc($searchWidth - (25px * 2.5)), calc(-45px + (25px / 5)));
+        transform: translate(calc($searchWidth - ($logoSize * 2.3)), calc(($logoSize / 1.8) - $searchHeight ));
     }
 
     #submit {
-        transform: translate(calc($searchWidth - (25px * 2.3)), calc(-45px + (25px / 2)));
+        transform: translate(calc($searchWidth - ($logoSize * 2)), calc(($logoSize / 1.4) - $searchHeight ));
     }
 
 }
