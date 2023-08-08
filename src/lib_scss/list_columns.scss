@@ -1,0 +1,135 @@
+//LIST TITLE COLUMNS
+#list_div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.list_columns{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.box_titles{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zone_tasks{
+    padding: 5px 25px 25px 25px;
+    @include BoxSizing(border-box); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.border{
+    border: solid 3px;
+    border-radius: 10px;
+    @include BoxShadow();
+}
+
+.col1 {
+    border-color: $colorOrange;
+}
+
+.col2{
+    border-color: $colorYellow;
+}
+
+.col3{
+    border-color: $colorGreen;
+}
+
+
+.align_self{
+    align-self: flex-end;
+}
+
+.btn_options {
+    font-size: 32px;
+    font-weight: 700;
+    color: $colorBLack;
+    opacity: 0.6;
+    padding: 0;
+    @include Appearance(none);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn_options:hover{
+    color: $colorPink;
+}
+
+.drop_zone{
+    width:100%;
+    min-height: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.width_100{
+    width: 100%;
+}
+
+.btn_add {
+    font-size: 36px;
+    color: $colorBLack;
+    opacity: 0.6;
+    width: 100%;
+    height: 55px;
+    @include Appearance(none);
+    @include BorderBtnAdd();
+    background-color: transparent;
+    @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    gap: 10px;
+    span{
+        font-size: 20px;
+    }
+}
+
+.btn_add:hover{
+    background-color: $colorPink;
+    color: $colorWhite
+}
+
+
+.dark_mode .border{
+    @include BoxShadow($colorShadowDark);
+}
+
+
+
+//MEDIA QUERY
+@media screen and (max-width: 1140px) {
+    #list_div{
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #list_div{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .list_columns{
+        gap: 15px;
+    }
+}
+
+
+
+//TODO : REDUIRE FONT SIZE + titres UNDER 425PX 

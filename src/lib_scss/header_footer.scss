@@ -1,0 +1,52 @@
+//PAGE STRUCTURE 
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+
+    .p_img_principale{
+        align-self: center;
+    }      
+}
+
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    div{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+//DARK MODE
+.dark_mode #btn_mode{
+    background-image: url("./ressources/images/btn_light_mode_50x48.webp");
+}
+
+.dark_mode footer{
+    div img{
+        filter: $filterLogoDark;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        // justify-content: space-between;
+        // align-items: center;
+        // margin-top: auto;
+        // div{
+        //     display: flex;
+        //     align-items: center;
+        //     gap: 15px;
+        // }
+    }
+}

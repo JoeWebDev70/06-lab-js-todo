@@ -1,10 +1,13 @@
 @import "./lib_scss/fonts.scss";
 @import "./lib_scss/mixin_variables.scss";
+@import "./lib_scss/header_footer.scss";
 @import "./lib_scss/mainpage.scss";
 @import "./lib_scss/tooltip.scss";
 @import "./lib_scss/searchbar.scss";
-@import "./lib_scss/list_structure.scss";
+@import "./lib_scss/list_title.scss";
+@import "./lib_scss/list_columns.scss";
 @import "./lib_scss/mentionspage.scss";
+@import "./lib_scss/transition.scss";
 
 :root{
     font-size: 100%;
@@ -61,48 +64,15 @@ a:hover{
 .hide_item{
     visibility: hidden;
 }
-
-//PAGE STRUCTURE 
-header{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;
-
-    .p_img_principale{
-        align-self: center;
-    }      
+.not_display_item{
+    display: none;
 }
 
-
-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    div{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-}
 
 //LIGHT MODE
 .light_mode{
     @include Theme();
 }
-
-//TRANSITION PAGE BETWEEN LIGHT AND DARK MODE
-.transition_out{
-    opacity: 0;
-    transition: opacity 0.8s;
-}
-
-.transition_in{
-    opacity: 1;
-    transition: opacity 0.8s;
-}
-
 
 //DARK MODE
 @media (prefers-color-scheme: dark) {
@@ -113,10 +83,6 @@ footer{
 
 .dark_mode{
     @include Theme($theme: $colorBgDark, $txtColor: $colorWhite);
-}
-
-.dark_mode #btn_mode{
-    background-image: url("./ressources/images/btn_light_mode_50x48.webp");
 }
 
 .dark_mode a{
@@ -135,12 +101,9 @@ footer{
     }
 }
 
-.dark_mode footer{
-    div img{
-        filter: $filterLogoDark;
-    }
+.dark_mode button{
+    color: $colorWhite;
 }
-
 
 //MEDIA QUERY
 @media screen and (max-width: 1140px) {
@@ -154,17 +117,4 @@ footer{
         font-size: 14px;
     }
 
-    footer{
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        // justify-content: space-between;
-        // align-items: center;
-        // margin-top: auto;
-        // div{
-        //     display: flex;
-        //     align-items: center;
-        //     gap: 15px;
-        // }
-    }
 }

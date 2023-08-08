@@ -1,0 +1,10 @@
+//TRANSITION PAGE BETWEEN LIGHT AND DARK MODE
+.transition_out{
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+.transition_in{
+    opacity: 1;
+    transition: opacity 0.8s;
+}

@@ -31,7 +31,7 @@ const btnErase = document.createElement("button");
 btnErase.type = "button";
 btnErase.id = "btn_erase";
 btnErase.textContent = "X";
-// btnErase.classList.add("item_hiden");
+btnErase.classList.add("item_hiden");
 
 //create submit button
 const btnSearch = document.createElement("button");

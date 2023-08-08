@@ -9,17 +9,11 @@ if(mainBody != null) {
     let tmpToggle = mainBody.getAttribute("class").split(" ");
     tmpToggle.forEach(function(classIn){
         if(classIn.includes("_mode")){
-            toggleModeChoice = classIn; //get default mode
+            toggleModeChoice = classIn; //get default mode on body 
+            setToggleModeChoice(); //set default mode on local storage
         }
     });
 }
-
-//! sometimes need to change favicon on dark mode
-//*const faviconElement = document.querySelector("link[rel='shortcut icon']");
-//! when elements are created direcly in HTML sometimes need to select all of them and apply classes for changing mode 
-//*example :
-//*const elementsMain = document.querySelectorAll("#body_main *"); 
-//! SEE : 05-lab-js-dictionary
 
 //get if local storage contain some value and set it 
 if(!localStorage.getItem("toggleModeChoice")){
