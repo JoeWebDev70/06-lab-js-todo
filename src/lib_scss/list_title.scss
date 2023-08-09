@@ -49,8 +49,6 @@
 }
 
 
-
-
 //DARK MODE
 .dark_mode #title_btn{
     filter: $filterLogoDark;
@@ -64,4 +62,14 @@
 .dark_mode .input_title_list{
     background-color: $colorBgDark;
     color: $colorWhite;
+}
+
+//MEDIA QUERY
+@media screen and (max-width : 425px) {
+    #title_div{
+        p{
+            height: 25px;
+            width:25px;
+        }
+    }
 }

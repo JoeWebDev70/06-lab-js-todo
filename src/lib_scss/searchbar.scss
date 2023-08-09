@@ -1,4 +1,3 @@
-// SEARCH BAR 
 $searchWidth : 425px;
 $searchHeight : 45px;
 $logoSize : 25px;
@@ -109,10 +108,37 @@ $logoSize : 25px;
 }
 
 //MEDIA QUERY
+@media screen and (min-width : 2000px) {
+    $searchHeight : 50px;
+
+    #search_form {
+        height: $searchHeight;
+    }
+
+    #input_search {
+        height: $searchHeight;
+        font-size: 16px;
+    }
+
+    #btn_erase {
+        transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 4) - $searchHeight ));
+    }
+
+    #submit {
+        transform: translate(calc($searchWidth - ($logoSize * 2.6)), calc(($logoSize / 2) - $searchHeight ));
+    }
+
+}
+
 @media screen and (max-width : 500px) {
-    $searchWidth : 300px;
+    $searchWidth : 350px;
     $searchHeight : 35px;
     $logoSize : 20px;
+    
+    #search_bar {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 
     #search_form {
         width: $searchWidth;
@@ -138,11 +164,11 @@ $logoSize : 25px;
 
 }
 
-@media screen and (max-width : 350px) {
-    $searchWidth : 250px;
+@media screen and (max-width : 375px) {
+    $searchWidth : 315px;
 
     #search_form {
-        width: $searchWidth;
+        width: 100%;
     }
 
     #btn_erase {
@@ -151,6 +177,23 @@ $logoSize : 25px;
 
     #submit {
         transform: translate(calc($searchWidth - ($logoSize * 2)), calc(($logoSize / 1.4) - $searchHeight ));
+    }
+
+}
+
+@media screen and (max-width : 350px) {
+    $searchWidth : 280px;
+
+    #search_form {
+        width: $searchWidth;
+    }
+
+    #btn_erase {
+        transform: translate(calc($searchWidth - ($logoSize * 3)), calc(($logoSize / 1.8) - $searchHeight ));
+    }
+
+    #submit {
+        transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 1.4) - $searchHeight ));
     }
 
 }

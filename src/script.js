@@ -6,6 +6,8 @@ import "./lib_js/mentionspage_structure.js";
 import "./lib_js/mentionspage_content.js";
 import "./lib_js/list_title.js";
 import "./lib_js/list_columns.js";
+import "./lib_js/menu_action.js";
+import "./lib_js/menu_create.js";
 import "./lib_js/togglemode.js";
 import "./lib_js/searchbar.js";
 import "./lib_js/transition.js";

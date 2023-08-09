@@ -1,4 +1,3 @@
-//LIST COLUMNS
 const btnOptionsContent = "...";
 const btnAddContent = "+";
 const btnAddTxtContent = "Add a task";

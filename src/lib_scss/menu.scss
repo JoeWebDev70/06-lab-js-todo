@@ -1,0 +1,46 @@
+.menu_container {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s;
+}
+
+.menu_container.active {
+    visibility: visible;
+    z-index: 100;
+}
+
+.menu_component{
+    width: 200px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    position: absolute;
+
+}
+
+.menu_container.active .menu_component {
+    visibility: visible;
+    opacity: 1;
+}
+
+menu{
+    padding: 0;
+    margin: 0;
+    width: 80%;
+}
+
+li{
+    list-style: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+li:hover{
+    color: $colorPink;
+}
+

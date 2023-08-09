@@ -1,4 +1,3 @@
-//MAIN PAGE STRUCTURE
 //header
 import {globalHeader} from "./header_structure.js";
 import {pBtnMode} from "./header_structure.js";
@@ -7,7 +6,7 @@ import {divSearchBar} from "./searchbar.js";
 //main
 import {titleDiv} from "./list_title";
 import {columns} from "./list_columns.js";
-// import {column1} from "./list_column1.js";
+import {menuContainer} from "./menu_create.js";
 // import {column2} from "./list_column2.js";
 // import {column3} from "./list_column3.js";
 //footer
@@ -28,6 +27,7 @@ if (mainBody != null) {
     const mainMain = document.createElement("main");;
     const mainFooter = globalFooter;
     //insert
+    mainBody.insertBefore(menuContainer, mainDiv);
     mainBody.insertBefore(mainHeader, mainDiv);
     mainBody.insertBefore(mainMain, mainDiv);
     mainMain.append(mainDiv);

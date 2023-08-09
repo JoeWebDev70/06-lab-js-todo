@@ -1,4 +1,3 @@
-//FOOTER STRUCTURE
 export const globalFooter = document.createElement("footer");
 //create link for legal mentions
 export const legalMentions = document.createElement("p");

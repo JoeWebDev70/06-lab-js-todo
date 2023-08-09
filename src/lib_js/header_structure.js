@@ -1,4 +1,3 @@
- //HEADER STRUCTURE
  export const globalHeader = document.createElement("header");
  //create button dark/lightmode
  export const pBtnMode = document.createElement("p");

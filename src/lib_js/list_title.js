@@ -15,7 +15,6 @@ window.addEventListener("storage", function(){
     titleContentUpdate(titleContent);
 });
 
-
 //create title list
 export const titleDiv = document.createElement("div");
 titleDiv.id = "title_div";
