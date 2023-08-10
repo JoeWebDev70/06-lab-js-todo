@@ -6,6 +6,7 @@ const colClasses = ["col1", "col2", "col3"];
 
 export let columns = new Array();
 export let listBtnsOptions = new Array();
+export let listBtnsAdds = new Array();
 
 for (let i = 0; i < 3; i++) {
     //create div col
@@ -36,7 +37,7 @@ for (let i = 0; i < 3; i++) {
     const pOptions = document.createElement("p");
     pOptions.classList.add("align_self");
     listBtnsOptions[i] = document.createElement("button");
-    // bOptions.id = `btn_list_option${[i]}`;
+                    // bOptions.id = `btn_list_option${[i]}`;
     listBtnsOptions[i].classList.add("btn_options");
     const bOptionsContent = document.createTextNode(btnOptionsContent);
     //insert btn list options in column
@@ -53,17 +54,17 @@ for (let i = 0; i < 3; i++) {
     //create btn add
     const pAdd = document.createElement("p");
     pAdd.classList.add("width_100");
-    const bAdd = document.createElement("button");
-    bAdd.id = `btn_list_add${[i]}`;
-    bAdd.classList.add("btn_add");
+    listBtnsAdds[i] = document.createElement("button");
+                // bAdd.id = `btn_list_add${[i]}`;
+    listBtnsAdds[i].classList.add("btn_add");
     const bAddSpan = document.createElement("span");
     const bAddContent = document.createTextNode(btnAddContent);
     const bAddTxtContent = document.createTextNode(btnAddTxtContent);
     //insert btn add  in zone tasks
     divTasks.appendChild(pAdd);
-    pAdd.appendChild(bAdd);
-    bAdd.appendChild(bAddContent);
-    bAdd.appendChild(bAddSpan);
+    pAdd.appendChild(listBtnsAdds[i]);
+    listBtnsAdds[i].appendChild(bAddContent);
+    listBtnsAdds[i].appendChild(bAddSpan);
     bAddSpan.appendChild(bAddTxtContent);
     
 

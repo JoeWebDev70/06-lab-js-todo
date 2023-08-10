@@ -1,0 +1,105 @@
+
+.dialog_container {
+    max-width: 400px;
+    min-width: 320px;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: $colorWhite;
+    padding: 25px;
+    @include BoxSizing("border-box");
+    border: none;
+    border-radius: 10px;
+}
+
+
+// button {
+//     border: none;
+//     cursor: pointer;
+// }
+
+// .btnCloseDialog{
+//     padding: 3px 6px;
+//     border-radius: 5px;
+//     font-size: 16px;
+//     position: absolute;
+//     top: 10px;
+//     right: 10px;
+//     background-color: red;
+//     color: white;
+// }
+
+// .btn_dialog{
+//   background-color: white;
+// }
+
+// .col{
+//     display: flex;
+//     flex-direction: column;
+// }
+
+// .border{
+//     border: 2px solid #00B5DE;
+//     border-radius: 5px;
+//     box-shadow: -2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+// }
+
+// form label{
+//     font-weight: 700;
+//     color: black;
+//     background-color: white;
+//     padding-left: 5px;
+//     padding-right: 5px;
+//     margin-top: 20px;
+//     margin-left: 10px;
+//     position: relative;
+//     z-index: 1;
+// }
+
+// form input,
+// form textarea{
+//     font-family: 'Manrope';
+//     font-size: 16px;
+//     font-weight: 400;
+//     padding: 15px 20px;
+//     box-sizing: border-box;
+//     margin-top: -10px;
+// }
+
+// form input:focus,
+// form textarea:focus{
+//     border: none;
+//     outline: solid 2px #EC559D;
+// }
+
+// #task_title_lbl{
+//     width: 35px;
+// }
+
+// #task_date_lbl{
+//     width: 70px;
+   
+// }
+
+// #task_date::after{
+//     cursor: pointer;
+// }
+
+// #task_description_lbl{
+//     width: 90px;
+// }
+
+// #task_description{
+//     resize: none;
+//     height: 150px;
+// }
+
+// #div_btn{
+//     margin-top: 20px;
+
+   
+// }
+
+// .task_btns{
+//     background-color: transparent;
+//     border-radius: 5px;
+// }

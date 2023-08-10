@@ -7,7 +7,7 @@ import {divSearchBar} from "./searchbar.js";
 import {titleDiv} from "./list_title";
 import {columns} from "./list_columns.js";
 import {menuContainer} from "./menu_create.js";
-// import {column2} from "./list_column2.js";
+import {dialog} from "./dialog_create.js";
 // import {column3} from "./list_column3.js";
 //footer
 import {globalFooter} from "./footer_structure.js";
@@ -26,8 +26,10 @@ if (mainBody != null) {
     const mainHeader = globalHeader;
     const mainMain = document.createElement("main");;
     const mainFooter = globalFooter;
+    
     //insert
     mainBody.insertBefore(menuContainer, mainDiv);
+    mainBody.insertBefore(dialog, mainDiv);
     mainBody.insertBefore(mainHeader, mainDiv);
     mainBody.insertBefore(mainMain, mainDiv);
     mainMain.append(mainDiv);
