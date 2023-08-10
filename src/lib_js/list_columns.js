@@ -5,6 +5,7 @@ const titlesContent = ["TO DO", "ON DOING", "DONE"];
 const colClasses = ["col1", "col2", "col3"];
 
 export let columns = new Array();
+export let listBtnsOptions = new Array();
 
 for (let i = 0; i < 3; i++) {
     //create div col
@@ -34,14 +35,14 @@ for (let i = 0; i < 3; i++) {
     //create btn list option
     const pOptions = document.createElement("p");
     pOptions.classList.add("align_self");
-    const bOptions = document.createElement("button");
-    bOptions.id = `btn_list_option${[i]}`;
-    bOptions.classList.add("btn_options");
+    listBtnsOptions[i] = document.createElement("button");
+    // bOptions.id = `btn_list_option${[i]}`;
+    listBtnsOptions[i].classList.add("btn_options");
     const bOptionsContent = document.createTextNode(btnOptionsContent);
     //insert btn list options in column
     divTasks.appendChild(pOptions);
-    pOptions.appendChild(bOptions);
-    bOptions.appendChild(bOptionsContent);
+    pOptions.appendChild(listBtnsOptions[i]);
+    listBtnsOptions[i].appendChild(bOptionsContent);
 
     //create drop zone
     const dropZone = document.createElement("div");

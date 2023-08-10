@@ -1,15 +1,14 @@
-
+import {listBtnsOptions} from "./list_columns.js";
 import {menuContent} from "./menu_create.js";
 import {menuContainer} from "./menu_create.js";
 import {menuComponent} from "./menu_create.js";
-const btnsOption = document.querySelectorAll(".btn_options");
+import {btnCloseMenu} from "./menu_create.js";
 const listOptionContent = ["On list", "Delete selection", "Delete All"];
 const taskOptionContent = ["On task", "Modify", "Delete"];
 
-
-btnsOption.forEach(function(btnOption){
-    btnOption.addEventListener("click", function(e){
-        displayMenu(btnOption, listOptionContent);
+listBtnsOptions.forEach(function(listBtnOption){
+    listBtnOption.addEventListener("click", function(){
+        displayMenu(listBtnOption, listOptionContent);
         menuContainer.classList.toggle("active");  
     })
 });
@@ -20,6 +19,11 @@ window.addEventListener("click", function(e) {
         menuContainer.classList.toggle("active");  
     }
 });
+
+//close menu on clic btn close
+btnCloseMenu.addEventListener("click", function() {
+    menuContainer.classList.toggle("active");  
+})
 
 
 function displayMenu(btnOpen, arrayContent){
@@ -35,7 +39,8 @@ function calculPosition(btnOpen){
 }
 
 function updateContent(arrayContent){
-    for (let i = 0; i < 2; i++){
-        //TODO Finir passage
+    for (let i = 0; i < arrayContent.length; i++){
+        console.log(arrayContent[i]);
+        menuContent[i].textContent = arrayContent[i];
     }
 }

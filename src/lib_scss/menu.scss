@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     transition: visibility 0.4s;
+    // cursor: pointer;
 }
 
 .menu_container.active {
@@ -14,13 +15,17 @@
 }
 
 .menu_component{
-    width: 200px;
-    background-color: whitesmoke;
-    border-radius: 5px;
-    padding: 15px 30px;
+    width: 250px;
+    background-color: $colorWhite;
+    border-radius: 10px;
+    padding: 20px 30px 30px 30px;
     box-sizing: border-box;
     position: absolute;
-
+    @include BoxShadow($colorShadowLight, 0, 4px, 4px,0);
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
 
 .menu_container.active .menu_component {
@@ -28,19 +33,34 @@
     opacity: 1;
 }
 
-menu{
+.menu_component menu{
     padding: 0;
     margin: 0;
     width: 80%;
+
+    li{
+        list-style: none;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    
+    li:hover{
+        color: $colorPink;
+    }
 }
 
-li{
-    list-style: none;
-    margin-top: 20px;
+.btn_close_menu {
+    padding: 3px 6px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: $colorWhite;
+    color: $colorBLack;
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.6;
     cursor: pointer;
 }
-
-li:hover{
-    color: $colorPink;
-}
-
