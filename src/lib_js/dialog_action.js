@@ -7,6 +7,7 @@ import {inputTitle} from "./dialog_create.js";
 import {inputDate} from "./dialog_create.js";
 import {txtareaDescription} from "./dialog_create.js";
 let currentList = "";
+let taskArray = new Array();
 
 
 
@@ -40,10 +41,20 @@ function onClose() {
 };
 
 function getTaskInformations(){
+    
+    let columnId = "";
     let titleTask = "";
     let dateTask = "";
     let descriptionTask = "";
 
+    if(currentList.split("add")[1] == '0'){
+        columnId = 0;
+    }else if(currentList.split("add")[1] == '1'){
+        columnId = 1;
+    }else {
+        columnId = 2;
+    }
+  
     if(inputTitle.value == ""){
         titleTask = "Untitled";
     }else{
@@ -57,10 +68,15 @@ function getTaskInformations(){
     }else{
         descriptionTask = txtareaDescription.value;
     }
-
     
-    console.log(titleTask);
-    console.log(dateTask);
-    console.log(descriptionTask);
-    console.log(currentList);
+    let newTask = {
+        column: columnId, 
+        id: taskArray.length, 
+        title: titleTask, 
+        date: dateTask, 
+        description: descriptionTask
+    }
+    
+    taskArray.push(newTask);
+    localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }

@@ -29,7 +29,6 @@ btnCloseMenu.addEventListener("click", function() {
     menuContainer.classList.toggle("active");  
 })
 
-
 function displayMenu(btnOpen, arrayContent){
     calculPosition(btnOpen);
     updateContent(arrayContent);

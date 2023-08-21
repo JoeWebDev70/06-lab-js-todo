@@ -56,3 +56,8 @@
     @include BorderShadow($colorShadowDark);
     @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
 }
+
+.dark_mode .task_btn_options {
+    color: $colorWhite;
+    opacity: 0.9;
+}
