@@ -86,7 +86,7 @@
     width: 100%;
     height: 55px;
     @include Appearance(none);
-    @include BorderBtnAdd();
+    @include BorderShadow();
     background-color: transparent;
     @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
     cursor: pointer;
@@ -101,15 +101,31 @@
 
 .btn_add:hover{
     background-color: $colorPink;
-    color: $colorWhite
+    color: $colorWhite;
 }
 
 
+
+//DARK MODE
 .dark_mode .border{
     @include BoxShadow($colorShadowDark);
 }
 
+.dark_mode .btn_options {
+    color: $colorWhite;
+    opacity: 0.9;
+}
 
+.dark_mode .btn_add {
+    opacity: 0.9;
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
+}
+
+.dark_mode .btn_add:hover{
+    color: $colorWhite;
+    opacity: 1;
+}
 
 //MEDIA QUERY
 @media screen and (max-width: 1140px) {

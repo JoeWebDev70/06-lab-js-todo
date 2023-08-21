@@ -8,7 +8,7 @@ import {titleDiv} from "./list_title";
 import {columns} from "./list_columns.js";
 import {menuContainer} from "./menu_create.js";
 import {dialog} from "./dialog_create.js";
-// import {column3} from "./list_column3.js";
+
 //footer
 import {globalFooter} from "./footer_structure.js";
 import {legalMentions} from "./footer_structure.js";

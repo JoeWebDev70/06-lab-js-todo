@@ -1,5 +1,0 @@
-//! SEE : 05-lab-js-dictionary
-
-//! sometimes need to change favicon on dark mode
-
-//! when elements are created direcly in HTML sometimes need to select all of them and apply classes for changing mode 

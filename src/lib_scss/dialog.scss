@@ -1,105 +1,181 @@
-
 .dialog_container {
     max-width: 400px;
     min-width: 320px;
-    padding: 30px;
-    box-sizing: border-box;
     background-color: $colorWhite;
-    padding: 25px;
-    @include BoxSizing("border-box");
+    padding: 30px;
+    @include BoxSizing(border-box);
     border: none;
     border-radius: 10px;
+    @include BoxShadow($colorShadowLight, -2px, 4px, 4px, 0px);
+
+    h2 {
+        text-align: center;
+        margin-right: 5px;
+    }
+
+    form label {
+        font-weight: 700;
+        color: $colorBLack;
+        background-color: $colorWhite;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 20px;
+        margin-left: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    form input,
+    form textarea {
+        font-family: 'Manrope';
+        font-size: 16px;
+        font-weight: 400;
+        padding: 15px 20px;
+        @include BoxSizing(border-box);
+        margin-top: -10px;
+        background-color: transparent;
+    }
+
+    form input:focus,
+    form textarea:focus {
+        border: none;
+        outline: solid 2px #EC559D;
+    }
+
+    form input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+    }
+      
+    form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        filter: $filterLogoHover;
+    }
+}
+
+.btn_close_dialog {
+    padding: 3px 6px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: transparent;
+    color: $colorBLack;
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.btn_close_dialog:hover{
+    color: $colorPink;
+}
+
+.col_in_dialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.border_in_dialog {
+    border: 2px solid #00B5DE;
+    border-radius: 5px;
+    @include BoxShadow($colorShadowLight, -2px, 4px, 4px, 0px);
+}
+
+#task_title_lbl {
+    width: 35px;
+}
+
+#task_date_lbl {
+    width: 70px;
+}
+
+#task_description_lbl {
+    width: 90px;
+}
+
+#task_description_area {
+    resize: none;
+    height: 150px;
+}
+
+#div_task_btns {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task_btns {
+    font-size: 16px;
+    color: $colorBLack;
+    opacity: 0.6;
+    width: 40%;
+    height: 45px;
+    @include Appearance(none);
+    @include BorderShadow();
+    background-color: transparent;
+    border-radius: 10px;
+    @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
+    cursor: pointer;
+}
+
+.task_btns:hover{
+    background-color: $colorPink;
+    color: $colorWhite;
+}
+
+//DARK MODE
+.dark_mode .dialog_container {
+    background-color: $colorBgDark;
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark, 0, 4px, 4px,0);
+
+    h2 {
+        color: $colorWhite;
+    }
+
+    form label {
+        color: $colorWhite;
+        background-color: $colorBgDark;
+    }
+
+    form input,
+    form textarea {
+        color: $colorWhite;
+    }
+
+    form input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: $filterLogoDark;
+    }
+
+    form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        filter: $filterLogoHover;
+    }
+}
+
+.dark_mode .border_in_dialog {
+    @include BoxShadow($colorShadowDark, -2px, 4px, 4px, 0px);
 }
 
 
-// button {
-//     border: none;
-//     cursor: pointer;
-// }
+.dark_mode .btn_close_dialog{
+    color: $colorWhite;
+    opacity: 0.9;
+}
 
-// .btnCloseDialog{
-//     padding: 3px 6px;
-//     border-radius: 5px;
-//     font-size: 16px;
-//     position: absolute;
-//     top: 10px;
-//     right: 10px;
-//     background-color: red;
-//     color: white;
-// }
+.dark_mode .btn_close_dialog:hover {
+    color: $colorPink;
+}
 
-// .btn_dialog{
-//   background-color: white;
-// }
+.dark_mode .task_btns {
+    color: $colorWhite;
+    opacity: 0.9;
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
+}
 
-// .col{
-//     display: flex;
-//     flex-direction: column;
-// }
-
-// .border{
-//     border: 2px solid #00B5DE;
-//     border-radius: 5px;
-//     box-shadow: -2px 4px 4px 0px rgba(0, 0, 0, 0.25);
-// }
-
-// form label{
-//     font-weight: 700;
-//     color: black;
-//     background-color: white;
-//     padding-left: 5px;
-//     padding-right: 5px;
-//     margin-top: 20px;
-//     margin-left: 10px;
-//     position: relative;
-//     z-index: 1;
-// }
-
-// form input,
-// form textarea{
-//     font-family: 'Manrope';
-//     font-size: 16px;
-//     font-weight: 400;
-//     padding: 15px 20px;
-//     box-sizing: border-box;
-//     margin-top: -10px;
-// }
-
-// form input:focus,
-// form textarea:focus{
-//     border: none;
-//     outline: solid 2px #EC559D;
-// }
-
-// #task_title_lbl{
-//     width: 35px;
-// }
-
-// #task_date_lbl{
-//     width: 70px;
-   
-// }
-
-// #task_date::after{
-//     cursor: pointer;
-// }
-
-// #task_description_lbl{
-//     width: 90px;
-// }
-
-// #task_description{
-//     resize: none;
-//     height: 150px;
-// }
-
-// #div_btn{
-//     margin-top: 20px;
-
-   
-// }
-
-// .task_btns{
-//     background-color: transparent;
-//     border-radius: 5px;
-// }
+.task_btns:hover{
+    background-color: $colorPink;
+    color: $colorWhite;
+    opacity: 1;
+}

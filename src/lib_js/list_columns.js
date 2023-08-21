@@ -5,6 +5,7 @@ const titlesContent = ["TO DO", "ON DOING", "DONE"];
 const colClasses = ["col1", "col2", "col3"];
 
 export let columns = new Array();
+export let dropZones = new Array();
 export let listBtnsOptions = new Array();
 export let listBtnsAdds = new Array();
 
@@ -37,7 +38,7 @@ for (let i = 0; i < 3; i++) {
     const pOptions = document.createElement("p");
     pOptions.classList.add("align_self");
     listBtnsOptions[i] = document.createElement("button");
-                    // bOptions.id = `btn_list_option${[i]}`;
+                    // listBtnsOptions[i].id = `btn_list_option${[i]}`;
     listBtnsOptions[i].classList.add("btn_options");
     const bOptionsContent = document.createTextNode(btnOptionsContent);
     //insert btn list options in column
@@ -46,16 +47,17 @@ for (let i = 0; i < 3; i++) {
     listBtnsOptions[i].appendChild(bOptionsContent);
 
     //create drop zone
-    const dropZone = document.createElement("div");
-    dropZone.classList.add("drop_zone");
+    dropZones[i] = document.createElement("div");
+    dropZones[i].id = `drop_zone${i}`;
+    dropZones[i].classList.add("drop_zone");
     // insert drop zone in zone tasks
-    divTasks.appendChild(dropZone);
+    divTasks.appendChild(dropZones[i]);
 
     //create btn add
     const pAdd = document.createElement("p");
     pAdd.classList.add("width_100");
     listBtnsAdds[i] = document.createElement("button");
-                // bAdd.id = `btn_list_add${[i]}`;
+    listBtnsAdds[i].id = `btn_list_add${[i]}`;
     listBtnsAdds[i].classList.add("btn_add");
     const bAddSpan = document.createElement("span");
     const bAddContent = document.createTextNode(btnAddContent);

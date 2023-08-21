@@ -8,6 +8,10 @@ const taskOptionContent = ["On task", "Modify", "Delete"];
 
 listBtnsOptions.forEach(function(listBtnOption){
     listBtnOption.addEventListener("click", function(){
+        // move menu if scroll page 
+        window.addEventListener("scroll", function() {
+            calculPosition(listBtnOption);
+        });
         displayMenu(listBtnOption, listOptionContent);
         menuContainer.classList.toggle("active");  
     })

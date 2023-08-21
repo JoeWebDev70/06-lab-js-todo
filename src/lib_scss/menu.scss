@@ -6,7 +6,6 @@
     width: 100vw;
     height: 100vh;
     transition: visibility 0.4s;
-    // cursor: pointer;
 }
 
 .menu_container.active {
@@ -19,8 +18,8 @@
     background-color: $colorWhite;
     border-radius: 10px;
     padding: 20px 30px 30px 30px;
-    box-sizing: border-box;
-    position: absolute;
+    @include BoxSizing(border-box);
+    position: relative;
     @include BoxShadow($colorShadowLight, 0, 4px, 4px,0);
     h2{
         text-align: center;
@@ -57,10 +56,31 @@
     position: absolute;
     top: 20px;
     right: 15px;
-    background-color: $colorWhite;
+    background-color: transparent;
     color: $colorBLack;
     font-size: 28px;
     font-weight: 700;
     opacity: 0.6;
     cursor: pointer;
+}
+
+.btn_close_menu:hover {
+    color: $colorPink;
+}
+
+
+//DARK MODE
+.dark_mode .menu_component{
+    background-color: $colorBgDark;
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark, 0, 4px, 4px,0);
+}
+
+.dark_mode .btn_close_menu {
+    color: $colorWhite;
+    opacity: 0.9;
+}
+
+.dark_mode .btn_close_menu:hover {
+    color: $colorPink;
 }
