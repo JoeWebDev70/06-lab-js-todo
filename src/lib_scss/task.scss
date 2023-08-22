@@ -10,6 +10,10 @@
 
 }
 
+.item:active{
+    cursor: grabbing;
+}
+
 #task_header{
     display: flex;
     justify-content: space-between;

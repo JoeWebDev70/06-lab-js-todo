@@ -3,7 +3,8 @@ import { dropZones } from "./list_columns.js";
 // import { taskArray } from "./dialog_action.js";
 
 export let taskArray = new Array();
-export let task_btn_options; 
+export let taskBtnOptions; 
+export let taskItems;
 
 export function getLocalStorageTasks() {
     //get if local storage contain some tasks 
@@ -41,7 +42,8 @@ if (mainBody != null) {
             taskDescription.textContent = task.description;
             dropZones[task.column].appendChild(clone);
 
-            task_btn_options = document.querySelectorAll(".task_btn_options");
+            taskItems = document.querySelectorAll(".taskItem");
+            taskBtnOptions = document.querySelectorAll(".task_btn_options");
             //set all node for erasing after
             // nodeToErase = resultZone.childNodes;
         });
