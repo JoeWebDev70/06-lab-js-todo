@@ -11,6 +11,7 @@ import "./lib_js/menu_create.js";
 import "./lib_js/dialog_create.js";
 import "./lib_js/dialog_action.js";
 import "./lib_js/task.js";
+import "./lib_js/drag_drop.js";
 import "./lib_js/togglemode.js";
 import "./lib_js/searchbar.js";
 import "./lib_js/transition.js";

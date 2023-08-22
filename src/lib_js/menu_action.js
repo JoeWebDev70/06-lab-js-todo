@@ -3,6 +3,8 @@ import {menuContent} from "./menu_create.js";
 import {menuContainer} from "./menu_create.js";
 import {menuComponent} from "./menu_create.js";
 import {btnCloseMenu} from "./menu_create.js";
+import {task_btn_options} from "./task.js";
+console.log("task btn options", task_btn_options);
 const listOptionContent = ["On list", "Delete selection", "Delete All"];
 const taskOptionContent = ["On task", "Modify", "Delete"];
 
@@ -13,6 +15,17 @@ listBtnsOptions.forEach(function(listBtnOption){
             calculPosition(listBtnOption);
         });
         displayMenu(listBtnOption, listOptionContent);
+        menuContainer.classList.toggle("active");  
+    })
+});
+
+task_btn_options.forEach(function(taskBtnOption){
+    taskBtnOption.addEventListener("click", function(){
+        // move menu if scroll page 
+        window.addEventListener("scroll", function() {
+            calculPosition(taskBtnOption);
+        });
+        displayMenu(taskBtnOption, taskOptionContent);
         menuContainer.classList.toggle("active");  
     })
 });

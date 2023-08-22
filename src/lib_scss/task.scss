@@ -3,11 +3,11 @@
     border-radius: 10px;
     padding: 15px 20px;
     @include BoxSizing(border-box);
+    margin: 10px;
     background-color: transparent;
     @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
     cursor: grab;
-    margin-top: 10px;
-    margin-bottom: 10px;
+
 }
 
 #task_header{

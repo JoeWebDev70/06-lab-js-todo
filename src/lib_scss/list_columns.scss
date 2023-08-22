@@ -71,9 +71,18 @@
 .drop_zone{
     width:100%;
     min-height: 150px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    max-height: 800px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow-y: auto;
 }
+
+.drop_zone::-webkit-scrollbar{
+    @include BorderShadow();
+    @include BoxShadow();
+    border-radius: 10px;
+}
+
 
 .width_100{
     width: 100%;

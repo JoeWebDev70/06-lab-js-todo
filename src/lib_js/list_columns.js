@@ -53,22 +53,23 @@ for (let i = 0; i < 3; i++) {
     // insert drop zone in zone tasks
     divTasks.appendChild(dropZones[i]);
 
-    //create btn add
-    const pAdd = document.createElement("p");
-    pAdd.classList.add("width_100");
-    listBtnsAdds[i] = document.createElement("button");
-    listBtnsAdds[i].id = `btn_list_add${[i]}`;
-    listBtnsAdds[i].classList.add("btn_add");
-    const bAddSpan = document.createElement("span");
-    const bAddContent = document.createTextNode(btnAddContent);
-    const bAddTxtContent = document.createTextNode(btnAddTxtContent);
-    //insert btn add  in zone tasks
-    divTasks.appendChild(pAdd);
-    pAdd.appendChild(listBtnsAdds[i]);
-    listBtnsAdds[i].appendChild(bAddContent);
-    listBtnsAdds[i].appendChild(bAddSpan);
-    bAddSpan.appendChild(bAddTxtContent);
-    
+    if (i != 2) {
+        //create btn add -- not column : Done
+        const pAdd = document.createElement("p");
+        pAdd.classList.add("width_100");
+        listBtnsAdds[i] = document.createElement("button");
+        listBtnsAdds[i].id = `btn_list_add${[i]}`;
+        listBtnsAdds[i].classList.add("btn_add");
+        const bAddSpan = document.createElement("span");
+        const bAddContent = document.createTextNode(btnAddContent);
+        const bAddTxtContent = document.createTextNode(btnAddTxtContent);
+        //insert btn add  in zone tasks
+        divTasks.appendChild(pAdd);
+        pAdd.appendChild(listBtnsAdds[i]);
+        listBtnsAdds[i].appendChild(bAddContent);
+        listBtnsAdds[i].appendChild(bAddSpan);
+        bAddSpan.appendChild(bAddTxtContent);
+    }
 
 }
 

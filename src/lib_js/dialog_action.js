@@ -2,14 +2,30 @@ import {listBtnsAdds} from "./list_columns.js";
 import {dialog} from "./dialog_create.js";
 import {btnCloseDialog} from "./dialog_create.js";
 import {btnCancel} from "./dialog_create.js";
+import {btnValidate} from "./dialog_create.js";
 import {formTask} from "./dialog_create.js";
 import {inputTitle} from "./dialog_create.js";
 import {inputDate} from "./dialog_create.js";
 import {txtareaDescription} from "./dialog_create.js";
+import {taskArray} from "./task.js";
+import {getLocalStorageTasks} from "./task.js";
+import {setLocalStorageTasks} from "./task.js";
+
 let currentList = "";
-let taskArray = new Array();
+// let taskArray = new Array();
 
+// //get if local storage contain some tasks 
+// if (!localStorage.getItem("taskArray")) {
+//     localStorage.href = 'index.html';
+// }
+// if (localStorage.getItem("taskArray") != null) {
+//     taskArray = JSON.parse(localStorage.getItem("taskArray"));
+// }
 
+// // //get if storage change
+// // window.addEventListener("storage", function(){
+// //     taskArray = JSON.parse(localStorage.getItem("taskArray"));
+// // });
 
 listBtnsAdds.forEach(function(listBtnAdd){
     listBtnAdd.addEventListener("click", function(){
@@ -27,9 +43,15 @@ btnCancel.addEventListener("click", function(){
     onClose();
 });
 
+// btnValidate.addEventListener("click", function(){
+//     dialog.close();
+// })
+
 formTask.addEventListener("submit", function(e){
     e.preventDefault();
     getTaskInformations(currentList);
+    // window.location.reload();
+    dialog.close();
 });
 
 function onOpen(){
@@ -41,7 +63,8 @@ function onClose() {
 };
 
 function getTaskInformations(){
-    
+    getLocalStorageTasks();
+    console.log(taskArray);
     let columnId = "";
     let titleTask = "";
     let dateTask = "";
@@ -78,5 +101,6 @@ function getTaskInformations(){
     }
     
     taskArray.push(newTask);
-    localStorage.setItem("taskArray", JSON.stringify(taskArray));
+    setLocalStorageTasks();
 }
+
