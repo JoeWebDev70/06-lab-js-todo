@@ -55,12 +55,12 @@ function drop(evt){
         
         //get child rec
         const rect = child.getBoundingClientRect();
+        console.log("rect", rect);
         // const rectX = rect.left + rect.width;
-        const centerY = rect.top + rect.height / 2;
+        // const centerY = rect.top + rect.height / 2;
     
         //get the element whom center is > or = to the mouse position || dropX > centerX
-        if ((dropY >= rect.top && dropY <= (rect.top + rect.height)) && (dropX >= rect.left && dropX <= (rect.left + rect.width)))  { 
-            // if ((dropY < centerY || dropY === centerY) && (dropX >= rect.left && dropX <= (rect.left + rect.width)))  { 
+        if ((dropY >= rect.top && dropY <= rect.bottom) && (dropX >= rect.left && dropX <= rect.right)) { 
             insertBeforeElement = child;
             break;
         }
@@ -70,7 +70,7 @@ function drop(evt){
     let newCol;
     if (insertBeforeElement == null) {
         for(let i = 0; i < rectColumn.length ; i++){
-            if(dropY >= rectColumn[i].top && dropX >= rectColumn[i].left){
+            if((dropY >= rectColumn[i].top && dropY <= rectColumn[i].bottom) && (dropX >= rectColumn[i].left && dropX <= rectColumn[i].right)){
                 dropZones[i].appendChild(draggableItem);
                 newCol = dropZones[i].id.split("drop_zone");
                 updateTaskColumn(draggableItem,parseInt(newCol[1]));
