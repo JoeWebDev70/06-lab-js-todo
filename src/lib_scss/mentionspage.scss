@@ -29,3 +29,17 @@
 a:hover #m_img_princiaple{
     filter: $filterImgHover;
 }
+
+@media screen and (max-width: 600px) {
+    #m_component{
+        width: 300px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #m_component{
+        width: 250px;
+    }
+}

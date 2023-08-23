@@ -2,7 +2,7 @@ import {listBtnsAdds} from "./list_columns.js";
 import {dialog} from "./dialog_create.js";
 import {btnCloseDialog} from "./dialog_create.js";
 import {btnCancel} from "./dialog_create.js";
-import {btnValidate} from "./dialog_create.js";
+// import {btnValidate} from "./dialog_create.js";
 import {formTask} from "./dialog_create.js";
 import {inputTitle} from "./dialog_create.js";
 import {inputDate} from "./dialog_create.js";

@@ -1,3 +1,5 @@
+import {taskArray} from "./task.js"; //for research function
+
 //create search bar
 export const divSearchBar = document.createElement("div");
 divSearchBar.id = "search_bar";
@@ -61,6 +63,7 @@ if (formSearch != null) {
             this.classList.remove('item_not_valid');
             inputSearch.placeholder = txtPlaceHolder;
             //import search function here
+            searchTask(inputSearch.value);
         }
     });
 
@@ -87,4 +90,9 @@ if (formSearch != null) {
         inputSearch.value = "";
         btnErase.classList.remove("item_shown");
     });
+}
+
+function searchTask(word){
+    console.log("inputSearch value : ", word);
+    console.log("taskArray : ",taskArray);
 }

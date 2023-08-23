@@ -126,6 +126,10 @@
     opacity: 0.9;
 }
 
+.dark_mode .btn_options:hover {
+    color: $colorPink;
+}
+
 .dark_mode .btn_add {
     opacity: 0.9;
     @include BorderShadow($colorShadowDark);

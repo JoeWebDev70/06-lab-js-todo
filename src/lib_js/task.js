@@ -22,11 +22,9 @@ export function setLocalStorageTasks() {
 
 if (mainBody != null) {
     getLocalStorageTasks();
-    // console.log("taskArray : ", taskArray);
 
     if (taskArray && Array.isArray(taskArray)) {
         taskArray.forEach(function (task) {
-            // console.log("task : ", task);
             let template = document.querySelector("template");
             let clone = template.content.cloneNode(true);
             let taskItem = clone.querySelector(".item");
@@ -42,10 +40,9 @@ if (mainBody != null) {
             taskDescription.textContent = task.description;
             dropZones[task.column].appendChild(clone);
 
+            // for export drag and drop and menu options
             taskItems = document.querySelectorAll(".item");
             taskBtnOptions = document.querySelectorAll(".task_btn_options");
-            //set all node for erasing after
-            // nodeToErase = resultZone.childNodes;
         });
     } else {
         console.log("NO data");

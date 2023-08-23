@@ -1,9 +1,7 @@
 //get the dragables items and drop zone
 import { dropZones } from "./list_columns.js";
 import { taskItems } from "./task.js";
-
 import {taskArray} from "./task.js";
-// import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
 
 //event on items

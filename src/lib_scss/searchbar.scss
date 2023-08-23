@@ -35,6 +35,7 @@ $logoSize : 25px;
 #input_search:focus {
     border: none;
     outline: 1px solid $colorPink;
+    cursor: text;
 }
 
 #input_search::placeholder {
@@ -79,7 +80,7 @@ $logoSize : 25px;
 
 #btn_erase:hover,
 #submit:hover {
-    filter: invert(47%) sepia(52%) saturate(1338%) hue-rotate(299deg) brightness(96%) contrast(93%);
+    filter: $filterLogoHover;
 }
 
 .item_hiden{
@@ -102,9 +103,17 @@ $logoSize : 25px;
     opacity: 0.8;
 }
 
+.dark_mode #btn_erase{
+    opacity: 0.9;
+}
 
-.dark_mode #submit{
+.dark_mode #submit {
     filter: $filterLogoDark;
+}
+
+.dark_mode #btn_erase:hover,
+.dark_mode #submit:hover {
+    filter: $filterLogoHover;
 }
 
 //MEDIA QUERY
@@ -153,13 +162,13 @@ $logoSize : 25px;
     #btn_erase {
         width: $logoSize;
         height: $logoSize;
-        transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 5) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 3.5)), calc(($logoSize / 5) - $searchHeight ));
     }
 
     #submit {
         width: $logoSize;
         height: $logoSize;
-        transform: translate(calc($searchWidth - ($logoSize * 2.6)), calc(($logoSize / 2.5) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 3.3)), calc(($logoSize / 2.5) - $searchHeight ));
     }
 
 }
@@ -172,11 +181,11 @@ $logoSize : 25px;
     }
 
     #btn_erase {
-        transform: translate(calc($searchWidth - ($logoSize * 2.3)), calc(($logoSize / 1.8) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 3.3)), calc(($logoSize / 1.8) - $searchHeight ));
     }
 
     #submit {
-        transform: translate(calc($searchWidth - ($logoSize * 2)), calc(($logoSize / 1.4) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 3.1)), calc(($logoSize / 1.4) - $searchHeight ));
     }
 
 }
