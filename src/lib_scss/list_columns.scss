@@ -73,8 +73,6 @@
     min-height: 150px;
     max-height: 800px;
     margin: 10px;
-    // margin-top: 15px;
-    // margin-bottom: 15px;
     overflow-y: auto;
 }
 
@@ -93,7 +91,7 @@
     font-size: 36px;
     color: $colorBLack;
     opacity: 0.6;
-    width: 100%;
+    width: 96%;
     height: 55px;
     @include Appearance(none);
     @include BorderShadow();
@@ -103,6 +101,8 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
+    margin-left: 10px;
+    // margin-right: 10px;
     gap: 10px;
     span{
         font-size: 20px;

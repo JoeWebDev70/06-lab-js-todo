@@ -58,7 +58,6 @@ function calculPosition(btnOpen){
 
 function updateContent(arrayContent){
     for (let i = 0; i < arrayContent.length; i++){
-        console.log(arrayContent[i]);
         menuContent[i].textContent = arrayContent[i];
     }
 }

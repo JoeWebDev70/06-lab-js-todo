@@ -12,20 +12,6 @@ import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
 
 let currentList = "";
-// let taskArray = new Array();
-
-// //get if local storage contain some tasks 
-// if (!localStorage.getItem("taskArray")) {
-//     localStorage.href = 'index.html';
-// }
-// if (localStorage.getItem("taskArray") != null) {
-//     taskArray = JSON.parse(localStorage.getItem("taskArray"));
-// }
-
-// // //get if storage change
-// // window.addEventListener("storage", function(){
-// //     taskArray = JSON.parse(localStorage.getItem("taskArray"));
-// // });
 
 listBtnsAdds.forEach(function(listBtnAdd){
     listBtnAdd.addEventListener("click", function(){
@@ -43,14 +29,11 @@ btnCancel.addEventListener("click", function(){
     onClose();
 });
 
-// btnValidate.addEventListener("click", function(){
-//     dialog.close();
-// })
 
 formTask.addEventListener("submit", function(e){
     e.preventDefault();
     getTaskInformations(currentList);
-    // window.location.reload();
+    window.location.reload();
     dialog.close();
 });
 

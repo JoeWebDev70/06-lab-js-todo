@@ -1,6 +1,5 @@
 import { mainBody } from "./mainpage_structure.js";
 import { dropZones } from "./list_columns.js";
-// import { taskArray } from "./dialog_action.js";
 
 export let taskArray = new Array();
 export let taskBtnOptions; 
@@ -36,13 +35,14 @@ if (mainBody != null) {
             // let taskCheckBox = clone.querySelector(".task_select");
             let taskDate = clone.querySelector(".task_date");
             let taskDescription = clone.querySelector(".task_description");
+
             taskItem.id = task.id;
             taskH2.textContent = task.title;
             taskDate.textContent = task.date;
             taskDescription.textContent = task.description;
             dropZones[task.column].appendChild(clone);
 
-            taskItems = document.querySelectorAll(".taskItem");
+            taskItems = document.querySelectorAll(".item");
             taskBtnOptions = document.querySelectorAll(".task_btn_options");
             //set all node for erasing after
             // nodeToErase = resultZone.childNodes;
