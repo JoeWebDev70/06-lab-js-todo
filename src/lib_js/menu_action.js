@@ -19,16 +19,18 @@ listBtnsOptions.forEach(function(listBtnOption){
     })
 });
 
-taskBtnOptions.forEach(function(taskBtnOption){
-    taskBtnOption.addEventListener("click", function(){
-        // move menu if scroll page 
-        window.addEventListener("scroll", function() {
-            calculPosition(taskBtnOption);
-        });
-        displayMenu(taskBtnOption, taskOptionContent);
-        menuContainer.classList.toggle("active");  
-    })
-});
+if(taskBtnOptions != null){
+    taskBtnOptions.forEach(function(taskBtnOption){
+        taskBtnOption.addEventListener("click", function(){
+            // move menu if scroll page 
+            window.addEventListener("scroll", function() {
+                calculPosition(taskBtnOption);
+            });
+            displayMenu(taskBtnOption, taskOptionContent);
+            menuContainer.classList.toggle("active");  
+        })
+    });
+}
 
 //close menu on clic out component
 window.addEventListener("click", function(e) {

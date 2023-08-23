@@ -4,11 +4,13 @@ import { dropZones } from "./list_columns.js";
 import { taskItems } from "./task.js";
 
 //event on items
-taskItems.forEach(function(item){
-    item.addEventListener("dragstart", function(e){
-        dragStart(e);
+if(taskItems != null){
+    taskItems.forEach(function(item){
+        item.addEventListener("dragstart", function(e){
+            dragStart(e);
+        });
     });
-});
+}
 
 //get when the drag start on item
 function dragStart(evt){evt.dataTransfer.setData('text/plain', evt.target.id);}
@@ -46,7 +48,6 @@ function drop(evt){
         
         //get child rec
         const rect = child.getBoundingClientRect();
-
         const rectX = rect.left + rect.width;
         const centerY = rect.top + rect.height / 2;
         
@@ -58,8 +59,8 @@ function drop(evt){
     }
 
 
-    //TODO: 
-    // get the column/dropzone where insert the element
+    //TODO:  
+    // get the column/dropzone where insert the element and modify the arrayTask data
     console.log(insertBeforeElement);
     // let tmpCol = insertBeforeElement.parentNode.id
     //insert the draggable element before the element found in the parent (dropZone)
