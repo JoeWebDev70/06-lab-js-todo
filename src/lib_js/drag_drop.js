@@ -1,8 +1,10 @@
 //get the dragables items and drop zone
-import { dropZones } from "./list_columns.js";
-import { taskItems } from "./task.js";
-import {taskArray} from "./task.js";
+import {dropZones} from "./list_columns.js";
+import {taskItems} from "./task.js";
+
+import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
+let tmpDragTaskArray = getLocalStorageTasks();
 
 //event on items
 if(taskItems != null){
@@ -53,9 +55,6 @@ function drop(evt){
         
         //get child rec
         const rect = child.getBoundingClientRect();
-        console.log("rect", rect);
-        // const rectX = rect.left + rect.width;
-        // const centerY = rect.top + rect.height / 2;
     
         //get the element whom center is > or = to the mouse position || dropX > centerX
         if ((dropY >= rect.top && dropY <= rect.bottom) && (dropX >= rect.left && dropX <= rect.right)) { 
@@ -86,6 +85,6 @@ function drop(evt){
 }
 
 function updateTaskColumn(item, col){
-    taskArray[item.id].column = col;
-    setLocalStorageTasks();
+    tmpDragTaskArray[item.id].column = col;
+    setLocalStorageTasks(tmpDragTaskArray);
 }

@@ -1,7 +1,8 @@
 //header
-import {globalHeader} from "./header_structure.js";
-import {pBtnMode} from "./header_structure.js";
-import {pImgPrincipale} from "./header_structure.js";
+import {createHeader} from "./header_structure.js";
+            // import {globalHeader} from "./header_structure.js";
+            // import {pBtnMode} from "./header_structure.js";
+            // import {pImgPrincipale} from "./header_structure.js";
 import {divSearchBar} from "./searchbar.js";
 //main
 import {titleDiv} from "./list_title";
@@ -15,15 +16,14 @@ import {legalMentions} from "./footer_structure.js";
 import {copyright} from "./footer_structure.js";
 import {divLogo} from "./footer_structure.js";
 
-
 export const mainBody = document.querySelector("#main_body");
 const mainDiv = document.querySelector("#main_div");
-
 
 //STRUCTURE
 if (mainBody != null) {
     //create
-    const mainHeader = globalHeader;
+    const mainHeader = createHeader();
+                // const mainHeader = globalHeader;
     const mainMain = document.createElement("main");;
     const mainFooter = globalFooter;
     
@@ -35,9 +35,9 @@ if (mainBody != null) {
     mainMain.append(mainDiv);
     mainBody.appendChild(mainFooter);
 
-    //HEADER
-    mainHeader.appendChild(pBtnMode); //insert button dark/lightmode
-    mainHeader.appendChild(pImgPrincipale); //insert image
+                    //HEADER
+                    // mainHeader.appendChild(pBtnMode); //insert button dark/lightmode
+                    // mainHeader.appendChild(pImgPrincipale); //insert image
 
     //MAIN
     //insert the importing search bar in main

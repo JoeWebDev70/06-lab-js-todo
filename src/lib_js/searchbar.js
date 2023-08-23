@@ -1,4 +1,4 @@
-import {taskArray} from "./task.js"; //for research function
+// import{searchTask} from "./search.js";
 
 //create search bar
 export const divSearchBar = document.createElement("div");
@@ -48,6 +48,7 @@ divTooltip.appendChild(labelSearch);
 formSearch.appendChild(btnErase);
 formSearch.append(btnSearch);
 
+
 //add event listener on seach bar and its items
 if (formSearch != null) {
     // verification of form validity
@@ -63,7 +64,7 @@ if (formSearch != null) {
             this.classList.remove('item_not_valid');
             inputSearch.placeholder = txtPlaceHolder;
             //import search function here
-            searchTask(inputSearch.value);
+            // searchTask(e, inputSearch.value);
         }
     });
 
@@ -90,9 +91,4 @@ if (formSearch != null) {
         inputSearch.value = "";
         btnErase.classList.remove("item_shown");
     });
-}
-
-function searchTask(word){
-    console.log("inputSearch value : ", word);
-    console.log("taskArray : ",taskArray);
 }

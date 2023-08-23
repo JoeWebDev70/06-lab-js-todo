@@ -7,10 +7,10 @@ import {formTask} from "./dialog_create.js";
 import {inputTitle} from "./dialog_create.js";
 import {inputDate} from "./dialog_create.js";
 import {txtareaDescription} from "./dialog_create.js";
-import {taskArray} from "./task.js";
+
 import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
-
+let tmpAddTaskArray = getLocalStorageTasks();
 let currentList = "";
 
 listBtnsAdds.forEach(function(listBtnAdd){
@@ -47,7 +47,6 @@ function onClose() {
 
 function getTaskInformations(){
     getLocalStorageTasks();
-    console.log(taskArray);
     let columnId = "";
     let titleTask = "";
     let dateTask = "";
@@ -77,13 +76,13 @@ function getTaskInformations(){
     
     let newTask = {
         column: columnId, 
-        id: taskArray.length, 
+        id: tmpAddTaskArray.length, 
         title: titleTask, 
         date: dateTask, 
         description: descriptionTask
     }
     
-    taskArray.push(newTask);
-    setLocalStorageTasks();
+    tmpAddTaskArray.push(newTask);
+    setLocalStorageTasks(tmpAddTaskArray);
 }
 

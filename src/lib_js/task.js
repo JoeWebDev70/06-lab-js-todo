@@ -1,7 +1,8 @@
 import { mainBody } from "./mainpage_structure.js";
 import { dropZones } from "./list_columns.js";
 
-export let taskArray = new Array();
+// export let taskArray = new Array();
+let taskArray = new Array();
 export let taskBtnOptions; 
 export let taskItems;
 
@@ -13,15 +14,16 @@ export function getLocalStorageTasks() {
     if (localStorage.getItem("taskArray") != null) {
         taskArray = JSON.parse(localStorage.getItem("taskArray"));
     }
+    return taskArray;
 }
 
-export function setLocalStorageTasks() {
+export function setLocalStorageTasks(taskArray) {
     localStorage.removeItem("taskArray");
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
 
 if (mainBody != null) {
-    getLocalStorageTasks();
+    taskArray = getLocalStorageTasks();
 
     if (taskArray && Array.isArray(taskArray)) {
         taskArray.forEach(function (task) {

@@ -14,4 +14,5 @@ import "./lib_js/task.js";
 import "./lib_js/drag_drop.js";
 import "./lib_js/togglemode.js";
 import "./lib_js/searchbar.js";
+import "./lib_js/search.js";
 import "./lib_js/transition.js";
