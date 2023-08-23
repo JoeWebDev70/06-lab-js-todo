@@ -59,7 +59,8 @@ function drop(evt){
         const centerY = rect.top + rect.height / 2;
     
         //get the element whom center is > or = to the mouse position || dropX > centerX
-        if ((dropY < centerY || dropY === centerY) && (dropX >= rect.left && dropX <= (rect.left + rect.width)))  { 
+        if ((dropY >= rect.top && dropY <= (rect.top + rect.height)) && (dropX >= rect.left && dropX <= (rect.left + rect.width)))  { 
+            // if ((dropY < centerY || dropY === centerY) && (dropX >= rect.left && dropX <= (rect.left + rect.width)))  { 
             insertBeforeElement = child;
             break;
         }
