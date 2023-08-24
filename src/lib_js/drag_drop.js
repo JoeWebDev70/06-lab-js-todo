@@ -1,14 +1,15 @@
 //get the dragables items and drop zone
-import {dropZones} from "./list_columns.js";
-import {taskItems} from "./task.js";
+const tmpDropZone = document.querySelectorAll(".drop_zone");
+const tmpTaskItems = document.querySelectorAll(".drop_zone");
 
 import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
+
 let tmpDragTaskArray = getLocalStorageTasks();
 
 //event on items
-if(taskItems != null){
-    taskItems.forEach(function(item){
+if(tmpTaskItems != null){
+    tmpTaskItems.forEach(function(item){
         item.addEventListener("dragstart", function(e){
             dragStart(e);
         });
@@ -21,7 +22,7 @@ function dragStart(evt){
 }
 
 //event on dropZone
-dropZones.forEach(function(dropZone){
+tmpDropZone.forEach(function(dropZone){
     dropZone.addEventListener("dragover", function(e){dragOver(e);});
     dropZone.addEventListener("drop", function(e){drop(e);});
 });
@@ -43,7 +44,7 @@ function drop(evt){
     //get children of drop zone = divs class : item // and rect of third column 
     let TmpDropChildrens = new Array();
     let rectColumn = new Array();
-    dropZones.forEach(function(dropZone){
+    tmpDropZone.forEach(function(dropZone){
         TmpDropChildrens.push(Array.from(dropZone.children));
         rectColumn.push(dropZone.getBoundingClientRect());
     });
@@ -68,8 +69,8 @@ function drop(evt){
     if (insertBeforeElement == null) {
         for(let i = 0; i < rectColumn.length ; i++){
             if((dropY >= rectColumn[i].top && dropY <= rectColumn[i].bottom) && (dropX >= rectColumn[i].left && dropX <= rectColumn[i].right)){
-                dropZones[i].appendChild(draggableItem);
-                newCol = dropZones[i].id.split("drop_zone");
+                tmpDropZone[i].appendChild(draggableItem);
+                newCol = tmpDropZone[i].id.split("drop_zone");
                 updateTaskColumn(draggableItem,parseInt(newCol[1]));
             }
         }

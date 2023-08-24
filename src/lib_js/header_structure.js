@@ -1,8 +1,6 @@
 export function createHeader(){
-            //  export const globalHeader = document.createElement("header");
     const globalHeader = document.createElement("header");
     //create button dark/lightmode
-            //  export const pBtnMode = document.createElement("p");
     const pBtnMode = document.createElement("p");
     const btnMode = document.createElement("button");
     btnMode.id = "btn_mode";
@@ -10,11 +8,9 @@ export function createHeader(){
     globalHeader.appendChild(pBtnMode);
     pBtnMode.appendChild(btnMode);
     //create image
-                    // export const pImgPrincipale = document.createElement("p");
     const pImgPrincipale = document.createElement("p");
     pImgPrincipale.classList.add("p_img_principale");
     const imgPrincipale = document.createElement("img");
-                // export const imgPrincipale = document.createElement("img");
     imgPrincipale.id = "m_img_princiaple"; //for hover to do list logo in mentions page
     imgPrincipale.srcset = "../ressources/images/logo_250x104.webp 250w, ../ressources/images/logo_495x205.webp 495w";
     imgPrincipale.sizes = "(max-width: 750px) 250px, 495px";

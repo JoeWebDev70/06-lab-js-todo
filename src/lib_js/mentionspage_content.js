@@ -2,7 +2,6 @@
 export function mentionsPageContentCreate(){
     //create container for alignement
     const mContainer = document.createElement("div");
-                // export const mContainer = document.createElement("div");
     mContainer.id = "m_container";
 
     //create component

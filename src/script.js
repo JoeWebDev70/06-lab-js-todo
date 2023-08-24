@@ -1,18 +1,12 @@
 import "./style.scss";
-import "./lib_js/header_structure.js"
-import "./lib_js/footer_structure.js"
-import "./lib_js/mainpage_structure.js";
-import "./lib_js/mentionspage_structure.js";
-import "./lib_js/mentionspage_content.js";
-import "./lib_js/list_title.js";
-import "./lib_js/list_columns.js";
-import "./lib_js/menu_action.js";
-import "./lib_js/menu_create.js";
-import "./lib_js/dialog_create.js";
-import "./lib_js/dialog_action.js";
-import "./lib_js/task.js";
-import "./lib_js/drag_drop.js";
-import "./lib_js/togglemode.js";
+import "./lib_js/display.js";
+// import "./lib_js/task.js";
 import "./lib_js/searchbar.js";
 import "./lib_js/search.js";
+import "./lib_js/list_title_action.js";
+import "./lib_js/menu_action.js";
+import "./lib_js/dialog_action.js";
+import "./lib_js/drag_drop.js";
+import "./lib_js/togglemode.js";
 import "./lib_js/transition.js";
+

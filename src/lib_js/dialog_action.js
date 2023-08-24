@@ -1,52 +1,69 @@
-import {listBtnsAdds} from "./list_columns.js";
-import {dialog} from "./dialog_create.js";
-import {btnCloseDialog} from "./dialog_create.js";
-import {btnCancel} from "./dialog_create.js";
-// import {btnValidate} from "./dialog_create.js";
-import {formTask} from "./dialog_create.js";
-import {inputTitle} from "./dialog_create.js";
-import {inputDate} from "./dialog_create.js";
-import {txtareaDescription} from "./dialog_create.js";
+
+const tmpListBtnsAdd = document.querySelectorAll(".btn_add");
+const tmpDialog = document.querySelector(".dialog_container");
+const tmpDialogBtnClose = document.querySelector(".btn_close_dialog");
+const tmpFormTask = document.querySelector("#form_task");
+const tmpInputTitle = document.querySelector("#task_title");
+const tmpInputDate = document.querySelector("#task_date");
+const tmpTxtareaDescription = document.querySelector("#task_description_area");
+// const tmpBtnValidate = document.querySelector("#validate");
+const tmpBtnCancel = document.querySelector("#cancel");
 
 import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
+import {createTasks} from "./task.js";
 let tmpAddTaskArray = getLocalStorageTasks();
 let currentList = "";
 
-listBtnsAdds.forEach(function(listBtnAdd){
-    listBtnAdd.addEventListener("click", function(){
-        currentList = listBtnAdd.id;
-        onOpen();
+if(tmpListBtnsAdd != null) {
+    tmpListBtnsAdd.forEach(function(listBtnAdd){
+        listBtnAdd.addEventListener("click", function(){
+            currentList = listBtnAdd.id;
+            onOpen();
+        });
     });
-});
+}else{console.log("listBtnsAdds is null in dialog_action")}
 
-btnCloseDialog.addEventListener("click", function(){
-    onClose();
-});
+//evt on close btn
+if(tmpDialogBtnClose != null) {
+    tmpDialogBtnClose.addEventListener("click", function(){
+        onClose();
+    });
+}else{console.log("btnCloseDialog is null in dialog_action")}
 
+//evt on cancel btn
+if(tmpBtnCancel != null) {
+    tmpBtnCancel.addEventListener("click", function(){
+        onClose();
+    });
+}else{console.log("btnCancel is null in dialog_action")}
 
-btnCancel.addEventListener("click", function(){
-    onClose();
-});
-
-
-formTask.addEventListener("submit", function(e){
-    e.preventDefault();
-    getTaskInformations(currentList);
-    window.location.reload();
-    dialog.close();
-});
+if(tmpFormTask != null) {
+    tmpFormTask.addEventListener("submit", function(e){
+        e.preventDefault();
+        getTaskInformations(currentList);
+        window.location.reload();
+        tmpDialog.close();
+    });
+}else{console.log("formTask is null in dialog_action")}
 
 function onOpen(){
-    dialog.showModal();
+    if(tmpDialog != null){
+        tmpDialog.showModal();
+    }else{console.log("dialog is null in dialog_action")}
 }
 
 function onClose() {
-    dialog.close();
+    if(tmpDialog != null){
+        tmpDialog.close();
+    }else{console.log("dialog is null in dialog_action")}
 };
 
+
+
+//TODO : revoir 
 function getTaskInformations(){
-    getLocalStorageTasks();
+    let taskArray = getLocalStorageTasks();
     let columnId = "";
     let titleTask = "";
     let dateTask = "";
@@ -60,29 +77,29 @@ function getTaskInformations(){
         columnId = 2;
     }
   
-    if(inputTitle.value == ""){
+    if(tmpInputTitle.value == ""){
         titleTask = "Untitled";
     }else{
-        titleTask = inputTitle.value;
+        titleTask = tmpInputTitle.value;
     }    
     
-    dateTask = inputDate.value;
+    dateTask = tmpInputDate.value;
 
-    if(txtareaDescription.value == ""){ 
+    if(tmpTxtareaDescription.value == ""){ 
         descriptionTask = "";
     }else{
-        descriptionTask = txtareaDescription.value;
+        descriptionTask = tmpTxtareaDescription.value;
     }
     
     let newTask = {
         column: columnId, 
-        id: tmpAddTaskArray.length, 
+        id: taskArray.length, 
         title: titleTask, 
         date: dateTask, 
         description: descriptionTask
     }
     
-    tmpAddTaskArray.push(newTask);
-    setLocalStorageTasks(tmpAddTaskArray);
+    taskArray.push(newTask);
+    setLocalStorageTasks(taskArray);
 }
 

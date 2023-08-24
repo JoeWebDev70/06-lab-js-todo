@@ -5,14 +5,10 @@ const toggleModeBtn = document.querySelector("#btn_mode");
 const preferColor = window.matchMedia("(prefers-color-scheme: dark)");
 let toggleModeChoice;
 
+//set default mode on local storage
 if(mainBody != null) {
-    let tmpToggle = mainBody.getAttribute("class").split(" ");
-    tmpToggle.forEach(function(classIn){
-        if(classIn.includes("_mode")){
-            toggleModeChoice = classIn; //get default mode on body 
-            setToggleModeChoice(); //set default mode on local storage
-        }
-    });
+    toggleModeChoice = mainBody.className;
+    setToggleModeChoice(); 
 }
 
 //get if local storage contain some value and set it 
@@ -76,25 +72,15 @@ function setToggleModeChoice(){
 //set color on various elements
 function setTheme(color){
     if (color == "dark_mode") {
-        if(mainBody != null) {
-            mainBody.classList.add("dark_mode");
-            mainBody.classList.remove("light_mode");
-        }
-
-        if(mentionsBody != null){
-            mentionsBody.classList.add("dark_mode");
-            mentionsBody.classList.remove("light_mode");
-        }
+        if(mainBody != null) { classListToggle(mainBody, "light_mode", "dark_mode");}
+        if(mentionsBody != null){classListToggle(mentionsBody, "light_mode", "dark_mode");}
     } else {
-        if(mainBody != null) {
-            mainBody.classList.remove("dark_mode");
-            mainBody.classList.add("light_mode");
-        }
-
-        if(mentionsBody != null){
-            mentionsBody.classList.remove("dark_mode");
-            mentionsBody.classList.add("light_mode");
-        }
+        if(mainBody != null) {classListToggle(mainBody, "dark_mode", "light_mode");}
+        if(mentionsBody != null){classListToggle(mentionsBody, "dark_mode", "light_mode");}
     }
 }
 
+function classListToggle(item, classRemove, classAdd){
+    item.classList.remove(classRemove);
+    item.classList.add(classAdd);
+}
