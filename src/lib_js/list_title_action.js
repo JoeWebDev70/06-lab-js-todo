@@ -1,7 +1,15 @@
+import {mainBody} from "./display.js";
 const tmpTitleBtn = document.querySelector("#title_btn");
 const tmpTitleList = document.querySelector("#title_list");
 const tmpInputTitleList = document.querySelector(".input_title_list");
 let titleContent;
+let Untitled = "Untitled";
+
+//set default mode on local storage
+if(mainBody != null) {
+    titleContent = Untitled;
+    titleContentUpdate(titleContent);
+}
 
 //get if local storage contain some value and set it 
 if(!localStorage.getItem("titleContent")){
@@ -44,7 +52,7 @@ if(tmpInputTitleList != null){
 
 function getTitleInputValue(txt){
     if(txt == ""){
-        titleContent = "Untitled";
+        titleContent = Untitled;
     }else{
         titleContent = txt;
     }

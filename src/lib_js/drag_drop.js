@@ -5,16 +5,14 @@ const tmpTaskItems = document.querySelectorAll(".drop_zone");
 import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
 
-let tmpDragTaskArray = getLocalStorageTasks();
-
 //event on items
-if(tmpTaskItems != null){
+if(tmpTaskItems != null && tmpTaskItems.length > 0){
     tmpTaskItems.forEach(function(item){
         item.addEventListener("dragstart", function(e){
             dragStart(e);
         });
     });
-}
+}else{console.log("TaskItems  is null in drag_drop")}
 
 //get when the drag start on item
 function dragStart(evt){
@@ -22,10 +20,12 @@ function dragStart(evt){
 }
 
 //event on dropZone
-tmpDropZone.forEach(function(dropZone){
-    dropZone.addEventListener("dragover", function(e){dragOver(e);});
-    dropZone.addEventListener("drop", function(e){drop(e);});
-});
+if(tmpDropZone != null && tmpDropZone.length > 0){
+    tmpDropZone.forEach(function(dropZone){
+        dropZone.addEventListener("dragover", function(e){dragOver(e);});
+        dropZone.addEventListener("drop", function(e){drop(e);});
+    });
+}else{console.log("DropZone is null in drag_drop")}
 
 //need to make the drop target valid
 function dragOver(evt){evt.preventDefault();}
@@ -41,44 +41,28 @@ function drop(evt){
     const dropX = evt.clientX;
     const dropY = evt.clientY;
 
-    //get children of drop zone = divs class : item // and rect of third column 
-    let TmpDropChildrens = new Array();
-    let rectColumn = new Array();
-    tmpDropZone.forEach(function(dropZone){
-        TmpDropChildrens.push(Array.from(dropZone.children));
-        rectColumn.push(dropZone.getBoundingClientRect());
-    });
-    const dropChildrens  = [].concat(TmpDropChildrens[0], TmpDropChildrens[1], TmpDropChildrens[2]);
+    //get children of drop zone = divs class : item // and rect of columns
+    const dropChildrens  = getChildren();
+    const rectColumns = getColumnsRect();
 
     //find the element before whom the drag element need to be insert 
-    let insertBeforeElement = null;
-    for (const child of dropChildrens) {
-        
-        //get child rec
-        const rect = child.getBoundingClientRect();
+    const insertBeforeElement = getInsertBeforeElement(dropChildrens, dropX, dropY);
     
-        //get the element whom center is > or = to the mouse position || dropX > centerX
-        if ((dropY >= rect.top && dropY <= rect.bottom) && (dropX >= rect.left && dropX <= rect.right)) { 
-            insertBeforeElement = child;
-            break;
-        }
-    }
-    
-    //if not element then appendChild in drop zone
     let newCol;
-    if (insertBeforeElement == null) {
-        for(let i = 0; i < rectColumn.length ; i++){
-            if((dropY >= rectColumn[i].top && dropY <= rectColumn[i].bottom) && (dropX >= rectColumn[i].left && dropX <= rectColumn[i].right)){
+    if (insertBeforeElement == null) { //if not element then appendChild in drop zone
+        for(let i = 0; i < rectColumns.length ; i++){
+            if((dropY >= rectColumns[i].top && dropY <= rectColumns[i].bottom) && (dropX >= rectColumns[i].left && dropX <= rectColumns[i].right)){
+                newCol = getNewCol(tmpDropZone[i]);
+                updateTaskColumn(draggableItem,newCol);
+                //insert the draggable element
                 tmpDropZone[i].appendChild(draggableItem);
-                newCol = tmpDropZone[i].id.split("drop_zone");
-                updateTaskColumn(draggableItem,parseInt(newCol[1]));
             }
         }
     }else{
         // get the column/dropzone where insert the element and modify the arrayTask data
         let tmpCol = insertBeforeElement.parentNode;
-        newCol = tmpCol.id.split("drop_zone");
-        updateTaskColumn(draggableItem,parseInt(newCol[1]));
+        newCol = getNewCol(tmpCol);
+        updateTaskColumn(draggableItem, newCol);
         
         //insert the draggable element before the element found in the parent (dropZone)
         tmpCol.insertBefore(draggableItem, insertBeforeElement);
@@ -86,6 +70,43 @@ function drop(evt){
 }
 
 function updateTaskColumn(item, col){
-    tmpDragTaskArray[item.id].column = col;
-    setLocalStorageTasks(tmpDragTaskArray);
+    let taskArray = getLocalStorageTasks();
+    for(let i = 0; i < taskArray.length ; i++){
+        if(taskArray[i].id == item.id){
+            taskArray[i].column = col;
+        }
+    }
+    setLocalStorageTasks(taskArray);
+}
+
+function getChildren(){
+    let TmpDropChildrens = new Array();
+    tmpDropZone.forEach(function(dropZone){
+        TmpDropChildrens.push(Array.from(dropZone.children));
+    });
+    return [].concat(TmpDropChildrens[0], TmpDropChildrens[1], TmpDropChildrens[2]);
+}
+
+function getColumnsRect(){
+    let rectColumns = new Array();
+    tmpDropZone.forEach(function(dropZone){
+        rectColumns.push(dropZone.getBoundingClientRect());
+    });
+    return rectColumns;
+}
+
+function getInsertBeforeElement(items, dropX, dropY){
+    for (const item of items) {
+        //get child rec
+        const rect = item.getBoundingClientRect();
+        //get the element whom center is > or = to the mouse position || dropX > centerX
+        if ((dropY >= rect.top && dropY <= rect.bottom) && (dropX >= rect.left && dropX <= rect.right)) { 
+            return item;
+        }
+    }
+}
+
+function getNewCol(item){
+    let newCol = item.id.split("drop_zone")
+    return parseInt(newCol[1]);
 }

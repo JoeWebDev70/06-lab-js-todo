@@ -1,5 +1,5 @@
-import {mainBody} from "./mainpage_structure.js";
-import {mentionsBody} from "./mentionspage_structure.js";
+import {mainBody} from "./display.js";
+import {mentionsBody} from "./display.js";
 
 const toggleModeBtn = document.querySelector("#btn_mode");
 const preferColor = window.matchMedia("(prefers-color-scheme: dark)");

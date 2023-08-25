@@ -1,5 +1,5 @@
 //MENTIONS PAGE CONTENT
-export function mentionsPageContentCreate(){
+export function createMentionsPageContent(){
     //create container for alignement
     const mContainer = document.createElement("div");
     mContainer.id = "m_container";

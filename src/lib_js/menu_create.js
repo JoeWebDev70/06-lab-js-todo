@@ -20,9 +20,11 @@ export function createMenuContainer(){
     const menuListe = document.createElement("menu");
     const menuChoice1 = document.createElement("li");
     menuChoice1.classList.add("menu_content");
+    menuChoice1.classList.add("menu_choice");
     const menuChoice1Content = document.createTextNode("");
     const menuChoice2 = document.createElement("li");
     menuChoice2.classList.add("menu_content");
+    menuChoice2.classList.add("menu_choice");
     const menuChoice2Content = document.createTextNode("");
 
     //insert content in component

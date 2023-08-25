@@ -84,7 +84,7 @@ export function createDialog(){
     const divButtons = document.createElement("div");
     divButtons.id = "div_task_btns";
     const btnValidate = document.createElement("button");
-    btnValidate.id = "validate";
+    // btnValidate.id = "validate";
     btnValidate.type = "submit";
     btnValidate.classList.add("task_btns");
     const btnValidateContent = document.createTextNode("Validate");

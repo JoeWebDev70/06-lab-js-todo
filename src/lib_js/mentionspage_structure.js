@@ -1,13 +1,10 @@
 //MENTIONS PAGE STRUCTURE
 import {createHeader} from "./header_structure.js";
-import {mentionsPageContentCreate} from "./mentionspage_content.js";
+import {createMentionsPageContent} from "./mentionspage_content.js";
 import {createFooter} from "./footer_structure.js";
 
-
-export const mentionsBody = document.querySelector("#body_mentions");
-
 //STRUCTURE
-export function displayMentionsPage() {
+export function displayMentionsPage(mentionsBody) {
     if (mentionsBody != null) {
         // HEADER
         const mentionsHeader = createHeader();
@@ -28,7 +25,7 @@ export function displayMentionsPage() {
 
         //MAIN
         const mentionsMain = document.createElement("main");
-        const mentionsContent = mentionsPageContentCreate();
+        const mentionsContent = createMentionsPageContent();
         if(mentionsContent != null) {
             mentionsBody.appendChild(mentionsMain);  
             mentionsMain.appendChild(mentionsContent);  

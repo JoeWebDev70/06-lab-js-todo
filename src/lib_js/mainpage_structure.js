@@ -1,21 +1,16 @@
 //header
 import {createHeader} from "./header_structure.js";
-import {divSearchBar} from "./searchbar.js";
+import {createSearchBar} from "./searchbar_create.js";
 //main
 import {createMenuContainer} from "./menu_create.js";
 import {createDialog} from "./dialog_create.js";
 import {createTitleList} from "./list_title_create.js";
 import {createListColumns} from "./list_columns.js";
-import {getLocalStorageTasks} from "./task.js";
-import {createTasks} from "./task.js";
 //footer
 import {createFooter} from "./footer_structure.js";
 
-export const mainBody = document.querySelector("#main_body");
+export function displayMainPage(mainBody){
 
-export function displayMainPage(){
-    //STRUCTURE
-    if (mainBody != null) {
         //HEADER ET DIALOG / MODAL
         const mainDiv = document.querySelector("#main_div");
 
@@ -39,6 +34,7 @@ export function displayMainPage(){
         mainBody.insertBefore(mainMain, mainDiv);
         mainMain.append(mainDiv);
         //insert the importing search bar in main
+        const divSearchBar = createSearchBar();
         mainMain.insertBefore(divSearchBar, mainDiv);
         //insert structure list in div in main
         const titleDiv = createTitleList();
@@ -53,12 +49,4 @@ export function displayMainPage(){
         }else{
             console.log("Footer is null in mainpage_structure");
         }
-
-
-        //TODO ! Revoir
-        const taskArray = getLocalStorageTasks();
-        if (taskArray != null) {
-            createTasks(mainBody, taskArray);
-        }
-    }
 }

@@ -7,6 +7,32 @@ export function getLocalStorageTasks() {
     if (localStorage.getItem("taskArray") != null) {
         taskArray = JSON.parse(localStorage.getItem("taskArray"));
     }
+    taskArray = cleanTaskArray(taskArray);
+    setLocalStorageTasks(taskArray);
+
+    return taskArray;
+}
+
+function cleanTaskArray(taskArray) {
+    if (taskArray && Array.isArray(taskArray)) {
+        for (let i = 0; i < taskArray.length ; i++) {
+            if (taskArray[i].column == null ) {
+                taskArray.splice(i, 1);
+            }
+
+            if(taskArray[i].id == null || taskArray[i].id != i){
+                taskArray[i].id = i;
+            }
+
+            if(typeof(taskArray[i].column) != 'number'){
+                taskArray[i].column = parseInt(taskArray[i].column);
+            }
+
+            if(typeof(taskArray[i].id) != 'number' ){
+                taskArray[i].id = parseInt(taskArray[i].id);
+            }
+        }
+    }
     return taskArray;
 }
 
@@ -15,7 +41,7 @@ export function setLocalStorageTasks(taskArray) {
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
 
-export function createTasks(body, taskArray){
+export function createTasks(taskArray){
     const tmp2DropZone = document.querySelectorAll(".drop_zone");
 
         if (taskArray && Array.isArray(taskArray)) {
@@ -30,6 +56,7 @@ export function createTasks(body, taskArray){
                 let taskDescription = clone.querySelector(".task_description");
 
                 taskItem.id = task.id;
+                // taskBtnOption.id = task.id;
                 taskH2.textContent = task.title;
                 taskDate.textContent = task.date;
                 taskDescription.textContent = task.description;
