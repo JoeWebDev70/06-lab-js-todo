@@ -1,5 +1,7 @@
 import {onOpen} from "./dialog_action.js";
 import {setTaskInForm}  from "./dialog_action.js";
+import {getLocalStorageTasks} from "./task.js";
+import {setLocalStorageTasks} from "./task.js";
 
 const tmpMenuContainer = document.querySelector(".menu_container");
 const tmpMenuComponent = document.querySelector(".menu_component");
@@ -21,9 +23,6 @@ if (tmpListBtnsOptions != null && tmpListBtnsOptions.length > 0) {
             });
             displayMenu(listBtnOption, listOptionContent);
             setBtnsMenuChoiceAction(listBtnOption);
-            if (tmpMenuContainer != null) {
-                tmpMenuContainer.classList.toggle("active");
-            } else { console.log("menuContainer null in menu_action"); }
         })
     });
 } else { console.log("listBtnsOptions is null in menu_action") }
@@ -38,9 +37,6 @@ if (tmpTaskBtnOptions != null && tmpTaskBtnOptions.length > 0) {
             });
             displayMenu(taskBtnOption, taskOptionContent);
             setBtnsMenuChoiceAction(taskBtnOption);
-            if (tmpMenuContainer != null) {
-                tmpMenuContainer.classList.toggle("active");
-            } else { console.log("menuContainer is null  in menu_action"); }
         })
     });
 } else { console.log("taskBtnOptions is null in menu_action") }
@@ -57,15 +53,22 @@ window.addEventListener("click", function (e) {
 //close menu on clic btn close
 if (tmpMenuBtnClose != null) {
     tmpMenuBtnClose.addEventListener("click", function () {
-        if (tmpMenuContainer != null) {
-            tmpMenuContainer.classList.toggle("active");
-        } else { console.log("menuContainer null in menu_action"); }
+        closeMenu();
     });
 } else { console.log("btnCloseMenu is null in menu_action") }
+
+function openMenu(){
+    tmpMenuContainer.classList.add("active");
+}
+
+function closeMenu(){
+    tmpMenuContainer.classList.remove("active");
+}
 
 function displayMenu(btnOpen, arrayContent) {
     calculPosition(btnOpen);
     updateMenuContent(arrayContent);
+    openMenu();
 }
 
 function calculPosition(btnOpen) {
@@ -87,28 +90,33 @@ function updateMenuContent(arrayContent) {
 
 function setBtnsMenuChoiceAction(btnClick) {
     const btnsMenuChoice = document.querySelectorAll(".menu_choice");
-    const parentItem = getParentItem(btnClick);
+    const taskItem = getTaskItem(btnClick);
+    const ListItem = getListItem(btnClick);
 
     btnsMenuChoice.forEach(function (btnMenuChoice) {
         switch (btnMenuChoice.textContent){
             case listOptionContent[1]:
                 btnMenuChoice.addEventListener("click", function () {
-                    deleteSelection();
+                    deleteSelection(ListItem);
+                    closeMenu();
                 });
                 break;
             case listOptionContent[2]:
                 btnMenuChoice.addEventListener("click", function () {
                     deleteAll();
+                    closeMenu();
                 });
                 break;
             case taskOptionContent[1]:
                 btnMenuChoice.addEventListener("click", function () {
-                    modifyTask(btnMenuChoice, parentItem);
+                    modifyTask(btnMenuChoice, taskItem);
+                    closeMenu();
                 });
                 break;
             case taskOptionContent[2]:
                 btnMenuChoice.addEventListener("click", function () {
-                    deleteTask();
+                    deleteTask(taskItem);
+                    closeMenu();
                 });
                 break;
         }
@@ -116,16 +124,36 @@ function setBtnsMenuChoiceAction(btnClick) {
 
 }
 
-function getParentItem(item) {
+function getTaskItem(item) {
     let parentItem = item.parentNode;
-    while (!parentItem.classList.contains("item")) {
-        parentItem = parentItem.parentNode;
+    if(item.classList.contains("task_btn_options")){
+        while (!parentItem.classList.contains("item")) {
+            parentItem = parentItem.parentNode;
+        }
     }
     return parentItem;
 }
 
-function deleteSelection() {
-    console.log("delete selection");
+function getListItem(item) {
+    let listItem = item.parentNode;
+    if(item.classList.contains("btn_options")){
+        listItem = listItem.nextElementSibling
+    }
+    return listItem;
+}
+
+//TODO :: finir
+function deleteSelection(ListItem) {
+    let taskArray = getLocalStorageTasks();
+    let listChildren = ListItem.children;
+    let taskToDelete = new Array();
+    let checkbox;
+    console.log("childrens", listChildren);
+    Array.from(listChildren).forEach(function(child){
+        checkbox = document.querySelector("input[type=checkbox]");
+        console.log("child", child, "checkbox", checkbox);
+    })
+
 }
 
 function deleteAll() {
@@ -137,6 +165,13 @@ function modifyTask(btnClick, item) {
     onOpen(btnClick);
 }
 
-function deleteTask(){
-
+function deleteTask(item) {
+    let taskArray = getLocalStorageTasks();
+    for (let i = 0; i < taskArray.length; i++) {
+        if (taskArray[i].id == item.id) {
+            taskArray.splice(i, 1);
+        }
+    }
+    setLocalStorageTasks(taskArray);
+    window.location.reload();
 }

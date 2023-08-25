@@ -47,7 +47,6 @@ if(tmpFormTask != null) {
             addTask(newDataTask);
         }else{
             if(tmpTask != ""){
-                console.log("tmpTask : ", tmpTask);
                 updateTask(tmpTask, newDataTask);
             }
         }
@@ -76,7 +75,6 @@ function onClose() {
 
 export function setTaskInForm(item){
     let taskArray = getLocalStorageTasks();
-
     for(let i = 0; i < taskArray.length; i++){
         if(taskArray[i].id == item.id){
             tmpInputTitle.value = taskArray[i].title;
@@ -149,4 +147,5 @@ function updateTask(task, newData){
         }
     }
     setLocalStorageTasks(taskArray);
+
 }

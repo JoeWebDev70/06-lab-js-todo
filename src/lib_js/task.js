@@ -9,7 +9,7 @@ export function getLocalStorageTasks() {
     }
     taskArray = cleanTaskArray(taskArray);
     setLocalStorageTasks(taskArray);
-
+    
     return taskArray;
 }
 
@@ -40,6 +40,11 @@ export function setLocalStorageTasks(taskArray) {
     localStorage.removeItem("taskArray");
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
+
+//TODO : voir pour changer window.location.reload();
+// document.addEventListener("DOMContentLoaded", function() {
+//     createTasks(getLocalStorageTasks());
+// });
 
 export function createTasks(taskArray){
     const tmp2DropZone = document.querySelectorAll(".drop_zone");

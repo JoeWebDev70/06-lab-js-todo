@@ -13,7 +13,9 @@ if (mainBody != null) {
     if (taskArray != null) {
         createTasks(taskArray);
     }
+
 }
+
 
 if (mentionsBody != null) {
     displayMentionsPage(mentionsBody);
