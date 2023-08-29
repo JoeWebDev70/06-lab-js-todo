@@ -88,8 +88,8 @@ function setIdOfItem(btnOpen) {
     if (btnOpen.classList.contains("task_btn_options")) {
         item = getTaskItem(btnOpen);
         idToSet = `item_${item.id}`
-    }else if (btnOpen.classList.contains("btn_options")) {
-        item = getListItem(btnOpen); 
+    } else if (btnOpen.classList.contains("btn_options")) {
+        item = getListItem(btnOpen);
         idToSet = `item${item.id}`
     }
     tmpMenuComponent.childNodes[2].id = idToSet;
@@ -113,9 +113,9 @@ function getListItem(item) {
 
 function setBtnsMenuChoiceAction() {
     const btnsMenuChoice = document.querySelectorAll(".menu_choice");
-    let idItem; 
+    let idItem;
 
-    btnsMenuChoice.forEach(function (btnMenuChoice) {            
+    btnsMenuChoice.forEach(function (btnMenuChoice) {
         btnMenuChoice.addEventListener("click", function (e) {
             e.preventDefault();
             e.stopImmediatePropagation();
@@ -123,11 +123,11 @@ function setBtnsMenuChoiceAction() {
             idItem = idItem[1];
             switch (btnMenuChoice.textContent) {
                 case listOptionContent[1]:
-                    deleteSelection(idItem);
+                    deleteTask("selection", idItem);
                     closeMenu();
                     break;
                 case listOptionContent[2]:
-                    deleteAll();
+                    deleteTask("all", idItem);
                     closeMenu();
                     break;
                 case taskOptionContent[1]:
@@ -135,53 +135,49 @@ function setBtnsMenuChoiceAction() {
                     closeMenu();
                     break;
                 case taskOptionContent[2]:
-                    deleteTask(idItem);
+                    deleteTask("one", idItem);
                     closeMenu();
                     break;
             }
         });
 
     });
-
 }
 
-function deleteSelection(ListItem) {
+function deleteTask(what, itemid) {
     let taskArray = getLocalStorageTasks();
-    const dropZone = document.querySelectorAll(".drop_zone");
-    let listChildren = Array.from(dropZone[ListItem].children);
-    let checkbox;
-    for (let i = 0; i < listChildren.length; i++){
-        checkbox = getCheckBox(listChildren[i]);
-        if (checkbox.checked) {
-            listChildren[i].remove();
-            taskArray = taskArray = spliceArray(taskArray, listChildren[i].id);
-            setLocalStorageTasks(taskArray);
-            createTasks();
+    if (what == "selection" || what == "all") {
+        const dropZone = document.querySelectorAll(".drop_zone");
+        let listChildren = Array.from(dropZone[itemid].children);
+        for (let i = 0; i < listChildren.length; i++) {
+            if (what == "selection") {
+                if (getCheckBox(listChildren[i]).checked) {
+                    listChildren[i].remove();
+                    taskArray = spliceArray(taskArray, listChildren[i].id);
+                }
+            } else {
+                listChildren[i].remove();
+                taskArray = spliceArray(taskArray, listChildren[i].id);
+            }
         }
+    } else if (what == "one") {
+        taskArray = spliceArray(taskArray, itemid);
     }
- }
-
-function getCheckBox(parent){
-    return parent.childNodes[0].childNodes[1].childNodes[1].childNodes[0];
-}
-
-function deleteAll() {
-    console.log("delete All");
-}
-
-function modifyTask(btnClick, item) {
-    setTaskInForm(item);
-    onOpen(btnClick);
-}
-
-function deleteTask(item) {
-    let taskArray = getLocalStorageTasks();
-    taskArray = spliceArray(taskArray, item);
+    
     setLocalStorageTasks(taskArray);
     createTasks();
 }
 
-function spliceArray(taskArray, item){
+function modifyTask(btnClick, itemid) {
+    setTaskInForm(itemid);
+    onOpen(btnClick);
+}
+
+function getCheckBox(parent) {
+    return parent.childNodes[0].childNodes[1].childNodes[1].childNodes[0];
+}
+
+function spliceArray(taskArray, item) {
     for (let i = 0; i < taskArray.length; i++) {
         if (taskArray[i].id == item) {
             taskArray.splice(i, 1);
