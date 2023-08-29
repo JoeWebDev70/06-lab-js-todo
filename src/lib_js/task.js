@@ -8,6 +8,7 @@ export function getLocalStorageTasks() {
     if (localStorage.getItem("taskArray") != null) {
         taskArray = JSON.parse(localStorage.getItem("taskArray"));
     }
+    
     taskArray = cleanTaskArray(taskArray);
     setLocalStorageTasks(taskArray);
     

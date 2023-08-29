@@ -1,4 +1,9 @@
+export const txtPlaceHolder = ["Search in your list", "Can't be blank!"];
+
 export function createSearchBar(){
+    const divSearch = document.createElement("div");
+    divSearch.id = "search_div";
+
     //create search bar
     const divSearchBar = document.createElement("div");
     divSearchBar.id = "search_bar";
@@ -16,9 +21,7 @@ export function createSearchBar(){
     inputSearch.type = "text";
     inputSearch.id = "input_search";
     inputSearch.name = "input_search";
-    inputSearch.dataError = "Can't be blank!";
-    const txtPlaceHolder = "Search in your lists";
-    inputSearch.placeholder = txtPlaceHolder;
+    inputSearch.placeholder = txtPlaceHolder[0];
     inputSearch.required = true;
 
     //create label for input
@@ -39,14 +42,24 @@ export function createSearchBar(){
     btnSearch.type = "submit";
     btnSearch.id = "submit";
 
+    //p for display error message
+    const pNotFound = document.createElement("p");
+    pNotFound.id = "not_found";
+    pNotFound.classList.add("word_not_found");
+    pNotFound.classList.add("item_hiden");
+    const pNotFoundContent = document.createTextNode("Word not found !");
+
     //insert 
+    divSearch.appendChild(divSearchBar);
     divSearchBar.appendChild(formSearch);
     formSearch.appendChild(divTooltip);
     divTooltip.appendChild(inputSearch);
     divTooltip.appendChild(labelSearch);
     formSearch.appendChild(btnErase);
     formSearch.append(btnSearch);
+    divSearch.appendChild(pNotFound);
+    pNotFound.appendChild(pNotFoundContent);
 
-    return divSearchBar;
+    return divSearch;
 
 }

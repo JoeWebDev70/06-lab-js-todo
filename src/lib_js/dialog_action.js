@@ -7,7 +7,6 @@ const tmpFormTask = document.querySelector("#form_task");
 const tmpInputTitle = document.querySelector("#task_title");
 const tmpInputDate = document.querySelector("#task_date");
 const tmpTxtareaDescription = document.querySelector("#task_description_area");
-// const tmpBtnValidate = document.querySelector("#validate");
 const tmpBtnCancel = document.querySelector("#cancel");
 
 import {getLocalStorageTasks} from "./task.js";

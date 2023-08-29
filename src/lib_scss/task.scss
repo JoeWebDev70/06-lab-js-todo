@@ -75,6 +75,10 @@
     border-radius: 10px;
 }
 
+.task_hide{
+    display: none;
+}
+
 //DARK MODE
 .dark_mode .item{
     @include BorderShadow($colorShadowDark);

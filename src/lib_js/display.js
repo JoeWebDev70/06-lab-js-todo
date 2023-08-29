@@ -8,7 +8,6 @@ import {createTasks} from "./task.js";
 if (mainBody != null) {
     displayMainPage(mainBody);
     createTasks();
-  
 }
 
 
