@@ -1,3 +1,4 @@
+
 export function getLocalStorageTasks() {
     let taskArray = new Array();
     //get if local storage contain some tasks 
@@ -41,34 +42,42 @@ export function setLocalStorageTasks(taskArray) {
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
 
-//TODO : voir pour changer window.location.reload();
-// document.addEventListener("DOMContentLoaded", function() {
-//     createTasks(getLocalStorageTasks());
-// });
-
-export function createTasks(taskArray){
-    const tmp2DropZone = document.querySelectorAll(".drop_zone");
-
-        if (taskArray && Array.isArray(taskArray)) {
+export function createTasks(){
+    clearTasks();
+    const taskArray = getLocalStorageTasks();
+    const tmpDropZone = document.querySelectorAll(".drop_zone");
+    
+    if (taskArray && Array.isArray(taskArray)) {
             taskArray.forEach(function (task) {
                 const template = document.querySelector("template");
                 const clone = template.content.cloneNode(true);
                 const taskItem = clone.querySelector(".item");
                 const taskH2 = clone.querySelector(".task_title");
-                // let taskBtnOption = clone.querySelector(".task_btn_options");
+                let taskBtnOption = clone.querySelector(".task_btn_options");
                 // let taskCheckBox = clone.querySelector(".task_select");
                 const taskDate = clone.querySelector(".task_date");
-                let taskDescription = clone.querySelector(".task_description");
+                const taskDescription = clone.querySelector(".task_description");
 
                 taskItem.id = task.id;
                 // taskBtnOption.id = task.id;
                 taskH2.textContent = task.title;
+                taskH2.style.maxLength = "100";
                 taskDate.textContent = task.date;
                 taskDescription.textContent = task.description;
-                tmp2DropZone[task.column].appendChild(clone);
+                tmpDropZone[task.column].appendChild(clone);
 
+                setLocalStorageTasks(taskArray);
             });
         } else {
             console.log("NO data");
         }
+}
+
+function clearTasks(){
+    const items = document.querySelectorAll(".item");
+    if(items && items.length){
+        items.forEach(function (item){
+            item.remove();
+        });
+    }
 }

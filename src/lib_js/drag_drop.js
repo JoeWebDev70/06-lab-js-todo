@@ -1,31 +1,35 @@
 //get the dragables items and drop zone
-const tmpDropZone = document.querySelectorAll(".drop_zone");
-const tmpTaskItems = document.querySelectorAll(".drop_zone");
+let tmpDropZone;
+let tmpTaskItems;
 
 import {getLocalStorageTasks} from "./task.js";
 import {setLocalStorageTasks} from "./task.js";
 
-//event on items
-if(tmpTaskItems != null && tmpTaskItems.length > 0){
-    tmpTaskItems.forEach(function(item){
-        item.addEventListener("dragstart", function(e){
-            dragStart(e);
-        });
-    });
-}else{console.log("TaskItems  is null in drag_drop")}
+//add actions before and after creating new tasks
+window.addEventListener("mousedown", function(e) {
+        //event on items
+        tmpTaskItems = document.querySelectorAll(".item");
+        if(tmpTaskItems != null && tmpTaskItems.length > 0){
+            tmpTaskItems.forEach(function(item){
+                item.addEventListener("dragstart", function(evt){
+                    dragStart(evt);
+                });
+            });
+        }
+        //event on dropZone
+        tmpDropZone = document.querySelectorAll(".drop_zone");
+        if(tmpDropZone != null && tmpDropZone.length > 0){
+            tmpDropZone.forEach(function(dropZone){
+                dropZone.addEventListener("dragover", function(evt){dragOver(evt);});
+                dropZone.addEventListener("drop", function(evt){drop(evt);});
+            });
+        }
+});
 
 //get when the drag start on item
 function dragStart(evt){
     evt.dataTransfer.setData('text/plain', evt.target.id);
 }
-
-//event on dropZone
-if(tmpDropZone != null && tmpDropZone.length > 0){
-    tmpDropZone.forEach(function(dropZone){
-        dropZone.addEventListener("dragover", function(e){dragOver(e);});
-        dropZone.addEventListener("drop", function(e){drop(e);});
-    });
-}else{console.log("DropZone is null in drag_drop")}
 
 //need to make the drop target valid
 function dragOver(evt){evt.preventDefault();}
@@ -47,12 +51,11 @@ function drop(evt){
 
     //find the element before whom the drag element need to be insert 
     const insertBeforeElement = getInsertBeforeElement(dropChildrens, dropX, dropY);
-    
     let newCol;
     if (insertBeforeElement == null) { //if not element then appendChild in drop zone
         for(let i = 0; i < rectColumns.length ; i++){
             if((dropY >= rectColumns[i].top && dropY <= rectColumns[i].bottom) && (dropX >= rectColumns[i].left && dropX <= rectColumns[i].right)){
-                newCol = getNewCol(tmpDropZone[i]);
+                                newCol = getNewCol(tmpDropZone[i]);
                 updateTaskColumn(draggableItem,newCol);
                 //insert the draggable element
                 tmpDropZone[i].appendChild(draggableItem);
@@ -63,7 +66,6 @@ function drop(evt){
         let tmpCol = insertBeforeElement.parentNode;
         newCol = getNewCol(tmpCol);
         updateTaskColumn(draggableItem, newCol);
-        
         //insert the draggable element before the element found in the parent (dropZone)
         tmpCol.insertBefore(draggableItem, insertBeforeElement);
     }
@@ -107,6 +109,6 @@ function getInsertBeforeElement(items, dropX, dropY){
 }
 
 function getNewCol(item){
-    let newCol = item.id.split("drop_zone")
+    let newCol = item.id.split("_")
     return parseInt(newCol[1]);
 }

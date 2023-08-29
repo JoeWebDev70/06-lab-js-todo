@@ -9,8 +9,10 @@
 //TITLE
 #title_div{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 15px;
+    width: 50%;
 
     p{
         height: 30px;
@@ -38,7 +40,6 @@
 
 .input_title_list{
     height: 45px;
-    width: 500px;
     @include Appearance(none);
     border: solid 1px $colorPink;
     border-radius: 5px;

@@ -1,4 +1,5 @@
 
+import {createTasks} from "./task.js";
 const tmpListBtnsAdd = document.querySelectorAll(".btn_add");
 const tmpDialog = document.querySelector(".dialog_container");
 const tmpDialogBtnClose = document.querySelector(".btn_close_dialog");
@@ -23,21 +24,21 @@ if(tmpListBtnsAdd != null) {
             onOpen(listBtnAdd);
         });
     });
-}else{console.log("listBtnsAdds is null in dialog_action")}
+}
 
 //evt on close btn
 if(tmpDialogBtnClose != null) {
     tmpDialogBtnClose.addEventListener("click", function(){
         onClose();
     });
-}else{console.log("btnCloseDialog is null in dialog_action")}
+}
 
 //evt on cancel btn
 if(tmpBtnCancel != null) {
     tmpBtnCancel.addEventListener("click", function(){
         onClose();
     });
-}else{console.log("btnCancel is null in dialog_action")}
+}
 
 if(tmpFormTask != null) {
     tmpFormTask.addEventListener("submit", function(e){
@@ -50,10 +51,10 @@ if(tmpFormTask != null) {
                 updateTask(tmpTask, newDataTask);
             }
         }
-        window.location.reload();
+        createTasks();
         tmpDialog.close();
     });
-}else{console.log("formTask is null in dialog_action")}
+}
 
 export function onOpen(btnClick){
     if(tmpDialog != null){
@@ -70,13 +71,13 @@ export function onOpen(btnClick){
 function onClose() {
     if(tmpDialog != null){
         tmpDialog.close();
-    }else{console.log("dialog is null in dialog_action")}
+    }
 };
 
 export function setTaskInForm(item){
     let taskArray = getLocalStorageTasks();
     for(let i = 0; i < taskArray.length; i++){
-        if(taskArray[i].id == item.id){
+        if(taskArray[i].id == item){
             tmpInputTitle.value = taskArray[i].title;
             tmpInputDate.value = taskArray[i].date;
             tmpTxtareaDescription.value = taskArray[i].description;
@@ -104,12 +105,18 @@ function getTaskInForm(){
     }else{
         descriptionTask = tmpTxtareaDescription.value;
     }
+
+    clearForm();
     
     return [titleTask, dateTask, descriptionTask];
 }
 
+function clearForm(){
+    tmpInputTitle.value = "";
+    tmpTxtareaDescription.value = "";
+}
+
 function addTask(informations) {
-    console.log("addTask");
     let taskArray = getLocalStorageTasks();
     const task = getTaskData(getColumnId(), taskArray.length, informations[0],informations[1], informations[2])
     taskArray.push(task);
@@ -147,5 +154,4 @@ function updateTask(task, newData){
         }
     }
     setLocalStorageTasks(taskArray);
-
 }

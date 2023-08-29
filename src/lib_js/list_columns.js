@@ -53,7 +53,7 @@ export function createListColumns(){
 
         //create drop zone
         dropZones[i] = document.createElement("div");
-        dropZones[i].id = `drop_zone${i}`;
+        dropZones[i].id = `dropZone_${i}`;
         dropZones[i].classList.add("drop_zone");
         // insert drop zone in zone tasks
         divTasks.appendChild(dropZones[i]);

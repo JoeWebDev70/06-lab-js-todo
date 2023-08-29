@@ -70,6 +70,7 @@
 
 .drop_zone{
     width:100%;
+    max-width: 100%;
     min-height: 150px;
     max-height: 800px;
     margin: 10px;
@@ -102,7 +103,6 @@
     align-items: center;
     padding-left: 20px;
     margin-left: 10px;
-    // margin-right: 10px;
     gap: 10px;
     span{
         font-size: 20px;

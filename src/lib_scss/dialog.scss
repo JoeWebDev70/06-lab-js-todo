@@ -97,6 +97,13 @@
 #task_description_area {
     resize: none;
     height: 150px;
+    // overflow-y: auto;
+}
+
+#task_description_area::-webkit-scrollbar{
+    @include BorderShadow();
+    @include BoxShadow();
+    border-radius: 10px;
 }
 
 #div_task_btns {

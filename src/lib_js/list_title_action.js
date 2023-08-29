@@ -17,6 +17,8 @@ if(!localStorage.getItem("titleContent")){
 }
 if(localStorage.getItem("titleContent") != null){
     titleContent = localStorage.getItem("titleContent");
+}else{
+    titleContent = Untitled;
 }
 
 //get if storage change
