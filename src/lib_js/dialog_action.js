@@ -112,7 +112,9 @@ function getTaskInForm(){
 
 function clearForm(){
     tmpInputTitle.value = "";
+    tmpInputDate.valueAsDate = new Date();
     tmpTxtareaDescription.value = "";
+
 }
 
 function addTask(informations) {

@@ -30,14 +30,14 @@ $filterLogoDark : invert(100%) sepia(100%) saturate(0%) hue-rotate(207deg) brigh
     appearance: $howAppear;
 }
 
-@mixin BoxShadow($color: $colorShadowLight, $offset-x: -5px, $offset-y: 5px, $blur-radius: 5px, $spread-radius: 0){
+@mixin BoxShadow($color: $colorShadowLight, $offset-x: -0.3125rem, $offset-y: 0.3125rem, $blur-radius: 0.3125rem, $spread-radius: 0){
     box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
 }
 
 @mixin BorderShadow($color: $colorShadowLight){
-    border-top: solid 1px $color;
-    border-right: solid 1px $color;
+    border-top: solid 0.0625rem $color;
+    border-right: solid 0.0625rem $color;
     border-bottom: none;
-    border-left: solid 1px $color;
-    border-radius: 10px;
+    border-left: solid 0.0625rem $color;
+    border-radius: 0.625rem;
 }

@@ -107,13 +107,13 @@
 }
 
 #div_task_btns {
-    margin-top: 30px;
+    margin-top: 1.875rem;
     display: flex;
     justify-content: space-around;
 }
 
 .task_btns {
-    font-size: 16px;
+    font-size: 1rem;
     color: $colorBLack;
     opacity: 0.6;
     width: 40%;
@@ -121,8 +121,8 @@
     @include Appearance(none);
     @include BorderShadow();
     background-color: transparent;
-    border-radius: 10px;
-    @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
+    border-radius: 0.625rem;
+    @include BoxShadow($colorShadowLight, 0, 0.25rem, 0.25rem, 0);
     cursor: pointer;
 }
 
@@ -135,7 +135,7 @@
 .dark_mode .dialog_container {
     background-color: $colorBgDark;
     @include BorderShadow($colorShadowDark);
-    @include BoxShadow($colorShadowDark, 0, 4px, 4px,0);
+    @include BoxShadow($colorShadowDark, 0, 0.25rem, 0.25rem,0);
 
     h2 {
         color: $colorWhite;
@@ -161,7 +161,7 @@
 }
 
 .dark_mode .border_in_dialog {
-    @include BoxShadow($colorShadowDark, -2px, 4px, 4px, 0px);
+    @include BoxShadow($colorShadowDark, -0.125rem, 0.25rem, 0.25rem, 0);
 }
 
 
@@ -178,7 +178,7 @@
     color: $colorWhite;
     opacity: 0.9;
     @include BorderShadow($colorShadowDark);
-    @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
+    @include BoxShadow($colorShadowDark, 0, 0.25rem, 0.25rem, 0);
 }
 
 .task_btns:hover{

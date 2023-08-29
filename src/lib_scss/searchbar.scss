@@ -6,9 +6,9 @@ $logoSize : 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-top: 75px;
-    margin-bottom: 50px;
+    gap: 1.875rem;
+    margin-top: 4.6875rem;
+    margin-bottom: 3.125rem;
 }
 
 #search_bar {
@@ -26,22 +26,22 @@ $logoSize : 25px;
 #input_search {
     width: 100%;
     height: $searchHeight;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     @include BoxSizing(border-box);
-    border: 1px solid $colorBlue;
-    border-radius: 20px;
+    border: 0.0625rem solid $colorBlue;
+    border-radius: 1.25rem;
     @include BoxShadow();
     position: relative;
-    text-indent: 15px;
+    text-indent: 0.9375rem;
     font-family: 'Manrope';
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     cursor: pointer;
 }
 
 #input_search:focus {
     border: none;
-    outline: 1px solid $colorPink;
+    outline: 0.0625rem solid $colorPink;
     cursor: text;
 }
 
@@ -82,7 +82,7 @@ $logoSize : 25px;
 
 #input_search:hover{
     border: none;
-    outline: 1px solid $colorPink
+    outline: 0.0625rem solid $colorPink
 }
 
 #btn_erase:hover,
@@ -138,7 +138,7 @@ $logoSize : 25px;
 
     #input_search {
         height: $searchHeight;
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     #btn_erase {
@@ -157,8 +157,8 @@ $logoSize : 25px;
     $logoSize : 20px;
     
     #search_bar {
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 
     #search_form {
@@ -168,7 +168,7 @@ $logoSize : 25px;
 
     #input_search {
         height: $searchHeight;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     #btn_erase {

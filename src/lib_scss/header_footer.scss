@@ -19,7 +19,7 @@ footer{
     div{
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 0.9375rem;
     }
 }
 
@@ -39,14 +39,6 @@ footer{
     footer{
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        // justify-content: space-between;
-        // align-items: center;
-        // margin-top: auto;
-        // div{
-        //     display: flex;
-        //     align-items: center;
-        //     gap: 15px;
-        // }
+        gap: 0.3125rem;
     }
 }

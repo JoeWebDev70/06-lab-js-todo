@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem;
     width: 50%;
 
     p{
@@ -41,12 +41,12 @@
 .input_title_list{
     height: 45px;
     @include Appearance(none);
-    border: solid 1px $colorPink;
-    border-radius: 5px;
+    border: solid 0.0625rem $colorPink;
+    border-radius: 0.3125rem;
     outline: none;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0125rem;
 }
 
 

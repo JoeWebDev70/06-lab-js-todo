@@ -3,26 +3,26 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    column-gap: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .list_columns{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .box_titles{
-    height: 60px;
+    height: 3.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .zone_tasks{
-    padding: 5px 25px 25px 25px;
+    padding: 0.3125rem 1.5625rem 1.5625rem 1.5625rem;
     @include BoxSizing(border-box); 
     display: flex;
     flex-direction: column;
@@ -30,8 +30,8 @@
 }
 
 .border{
-    border: solid 3px;
-    border-radius: 10px;
+    border: solid 0.1875rem;
+    border-radius: 0.625rem;
     @include BoxShadow();
 }
 
@@ -53,7 +53,7 @@
 }
 
 .btn_options {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
     color: $colorBLack;
     opacity: 0.6;
@@ -73,14 +73,14 @@
     max-width: 100%;
     min-height: 150px;
     max-height: 800px;
-    margin: 10px;
+    margin: 0.625rem;
     overflow-y: auto;
 }
 
 .drop_zone::-webkit-scrollbar{
     @include BorderShadow();
     @include BoxShadow();
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
 
@@ -89,7 +89,7 @@
 }
 
 .btn_add {
-    font-size: 36px;
+    font-size: 2.25rem;
     color: $colorBLack;
     opacity: 0.6;
     width: 96%;
@@ -97,15 +97,15 @@
     @include Appearance(none);
     @include BorderShadow();
     background-color: transparent;
-    @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
+    @include BoxShadow($colorShadowLight, 0, 0.25rem, 0.25rem, 0);
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    margin-left: 10px;
-    gap: 10px;
+    padding-left: 1.25rem;
+    margin-left: 0.625rem;
+    gap: 0.625rem;
     span{
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 }
 
@@ -133,7 +133,7 @@
 .dark_mode .btn_add {
     opacity: 0.9;
     @include BorderShadow($colorShadowDark);
-    @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
+    @include BoxShadow($colorShadowDark, 0, 0.25rem, 0.25rem, 0);
 }
 
 .dark_mode .btn_add:hover{
@@ -144,7 +144,7 @@
 //MEDIA QUERY
 @media screen and (max-width: 1140px) {
     #list_div{
-        gap: 20px;
+        gap: 1.25rem;
     }
 }
 
@@ -152,18 +152,18 @@
     #list_div{
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 3.125rem;
     }
 
     .list_columns{
-        gap: 15px;
+        gap: 0.9375rem;
     }
 }
 
 @media screen and (max-width: 425px) {
     #list_div{
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 
     .box_titles{
@@ -171,18 +171,18 @@
     }
 
     .zone_tasks{
-        padding: 0 15px 15px 15px;
+        padding: 0 0.9375rem 0.9375rem 0.9375rem;
     }
 
     .btn_options {
-        font-size: 28px;
+        font-size: 1.75rem;
     }
 
     .btn_add {
-        font-size: 24px;
+        font-size: 1.5rem;
         height: 40px;
         span{
-            font-size: 16px;
+            font-size: 1rem;
         }
     }
 }

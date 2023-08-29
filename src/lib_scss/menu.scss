@@ -15,14 +15,14 @@
 .menu_component{
     width: 250px;
     background-color: $colorWhite;
-    border-radius: 10px;
-    padding: 20px 30px 30px 30px;
+    border-radius: 0.625rem;
+    padding: 1.25rem 1.875rem 1.875rem 1.875rem;
     @include BoxSizing(border-box);
     position: relative;
-    @include BoxShadow($colorShadowLight, 0, 4px, 4px,0);
+    @include BoxShadow($colorShadowLight, 0, 0.25rem, 0.25rem,0);
     h2{
         text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
     }
 }
 
@@ -38,7 +38,7 @@
 
     li{
         list-style: none;
-        margin-top: 20px;
+        margin-top: 1.25rem;
         cursor: pointer;
     }
     
@@ -48,16 +48,16 @@
 }
 
 .btn_close_menu {
-    padding: 3px 6px;
+    padding: 0.1875rem 0.375rem;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
     position: absolute;
-    top: 20px;
-    right: 15px;
+    top: 1.25rem;
+    right: 0.9375rem;
     background-color: transparent;
     color: $colorBLack;
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 700;
     opacity: 0.6;
     cursor: pointer;
@@ -72,7 +72,7 @@
 .dark_mode .menu_component{
     background-color: $colorBgDark;
     @include BorderShadow($colorShadowDark);
-    @include BoxShadow($colorShadowDark, 0, 4px, 4px,0);
+    @include BoxShadow($colorShadowDark, 0, 0.25rem, 0.25rem,0);
 }
 
 .dark_mode .btn_close_menu {

@@ -1,11 +1,11 @@
 .item{
     @include BorderShadow();
-    border-radius: 10px;
-    padding: 15px 20px;
+    border-radius: 0.625rem;
+    padding: 0.9375rem 1.25rem;
     @include BoxSizing(border-box);
-    margin: 10px;
+    margin: 0.625rem;
     background-color: transparent;
-    @include BoxShadow($colorShadowLight, 0, 4px, 4px, 0);
+    @include BoxShadow($colorShadowLight, 0, 0.25rem, 0.25rem, 0);
     cursor: grab;
 
 }
@@ -18,12 +18,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 
     div{
         display: flex;
         align-items:end;
-        gap: 15px;
+        gap: 0.9375rem;
     }
 }
 
@@ -33,7 +33,7 @@
 }
 
 .task_btn_options {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: $colorBLack;
     opacity: 0.6;
@@ -57,13 +57,12 @@
 
 .task_date,
 .task_description{
-    margin-bottom: 10px
+    margin-bottom: 0.625rem
 }
 
 .task_description{
-
     max-height: 100px;
-    margin-right: 5px;
+    margin-right: 0.3125rem;
     overflow-y: auto;
 
 }
@@ -72,7 +71,7 @@
 .task_description::-webkit-scrollbar{
     @include BorderShadow();
     @include BoxShadow();
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
 .task_hide{
@@ -82,7 +81,7 @@
 //DARK MODE
 .dark_mode .item{
     @include BorderShadow($colorShadowDark);
-    @include BoxShadow($colorShadowDark, 0, 4px, 4px, 0);
+    @include BoxShadow($colorShadowDark, 0, 0.25rem, 0.25rem, 0);
 }
 
 .dark_mode .task_btn_options {
