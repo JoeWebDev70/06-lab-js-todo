@@ -1,15 +1,9 @@
 import {mainBody} from "./display.js";
 import {mentionsBody} from "./display.js";
 
-const toggleModeBtn = document.querySelector("#btn_mode");
+let toggleModeBtn = document.querySelector("#btn_mode");
 const preferColor = window.matchMedia("(prefers-color-scheme: dark)");
 let toggleModeChoice;
-
-//set default mode on local storage
-if(mainBody != null) {
-    toggleModeChoice = mainBody.className;
-    setToggleModeChoice(); 
-}
 
 //get if local storage contain some value and set it 
 if(!localStorage.getItem("toggleModeChoice")){
@@ -17,7 +11,13 @@ if(!localStorage.getItem("toggleModeChoice")){
 }
 if(localStorage.getItem("toggleModeChoice") != null){
     toggleModeChoice = localStorage.getItem("toggleModeChoice");
+}else{
+    //set default mode on local storage
+    if(mainBody != null) {
+        toggleModeChoice = mainBody.className;
+    }
 }
+setToggleModeChoice();
 setTheme(toggleModeChoice);
 
 //get if storage change
@@ -36,6 +36,18 @@ preferColor.addEventListener("change", (e) =>{
         setTheme("light_mode");
     }
     setToggleModeChoice();
+});
+
+
+window.addEventListener("click", function(e){
+    if(e.target.id == "btn_mode"){
+        if(mentionsBody != null) {
+            mentionsBody.classList.toggle("dark_mode");
+            mentionsBody.classList.toggle("light_mode");
+            toggleModeChoice = mentionsBody.className;
+            setToggleModeChoice();
+        }
+    }
 });
 
 //else get the color prefer set with toggle on local storage

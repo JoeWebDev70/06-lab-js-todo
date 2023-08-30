@@ -185,24 +185,24 @@ $logoSize : 25px;
 
 }
 
+// @media screen and (max-width : 375px) {
+//     $searchWidth : 315px;
+
+//     #search_form {
+//         width: 100%;
+//     }
+
+//     #btn_erase {
+//         transform: translate(calc($searchWidth - ($logoSize * 3.3)), calc(($logoSize / 1.8) - $searchHeight ));
+//     }
+
+//     #submit {
+//         transform: translate(calc($searchWidth - ($logoSize * 3.1)), calc(($logoSize / 1.4) - $searchHeight ));
+//     }
+
+// }
+
 @media screen and (max-width : 375px) {
-    $searchWidth : 315px;
-
-    #search_form {
-        width: 100%;
-    }
-
-    #btn_erase {
-        transform: translate(calc($searchWidth - ($logoSize * 3.3)), calc(($logoSize / 1.8) - $searchHeight ));
-    }
-
-    #submit {
-        transform: translate(calc($searchWidth - ($logoSize * 3.1)), calc(($logoSize / 1.4) - $searchHeight ));
-    }
-
-}
-
-@media screen and (max-width : 350px) {
     $searchWidth : 280px;
 
     #search_form {
@@ -210,11 +210,11 @@ $logoSize : 25px;
     }
 
     #btn_erase {
-        transform: translate(calc($searchWidth - ($logoSize * 3)), calc(($logoSize / 1.8) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 2.2)), calc(($logoSize / 1.8) - $searchHeight ));
     }
 
     #submit {
-        transform: translate(calc($searchWidth - ($logoSize * 2.8)), calc(($logoSize / 1.4) - $searchHeight ));
+        transform: translate(calc($searchWidth - ($logoSize * 2)), calc(($logoSize / 1.4) - $searchHeight ));
     }
 
 }

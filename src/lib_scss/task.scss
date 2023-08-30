@@ -29,7 +29,10 @@
 
 .task_title{
     max-height: 40px;
-    overflow-y: auto;
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .task_btn_options {
@@ -67,7 +70,6 @@
 
 }
 
-.task_title::-webkit-scrollbar,
 .task_description::-webkit-scrollbar{
     @include BorderShadow();
     @include BoxShadow();
@@ -91,4 +93,10 @@
 
 .dark_mode .task_btn_options:hover{
     color: $colorPink;
+}
+
+
+.dark_mode .task_description::-webkit-scrollbar{
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark);
 }

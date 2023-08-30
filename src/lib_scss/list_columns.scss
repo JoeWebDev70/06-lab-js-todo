@@ -83,7 +83,6 @@
     border-radius: 0.625rem;
 }
 
-
 .width_100{
     width: 100%;
 }
@@ -139,6 +138,11 @@
 .dark_mode .btn_add:hover{
     color: $colorWhite;
     opacity: 1;
+}
+
+.dark_mode .drop_zone::-webkit-scrollbar{
+    @include BorderShadow($colorShadowDark);
+    @include BoxShadow($colorShadowDark);
 }
 
 //MEDIA QUERY
