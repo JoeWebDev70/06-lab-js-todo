@@ -6,9 +6,6 @@ const preferColor = window.matchMedia("(prefers-color-scheme: dark)");
 let toggleModeChoice;
 
 //get if local storage contain some value and set it 
-if(!localStorage.getItem("toggleModeChoice")){
-    localStorage.href = 'index.html';
-}
 if(localStorage.getItem("toggleModeChoice") != null){
     toggleModeChoice = localStorage.getItem("toggleModeChoice");
 }else{

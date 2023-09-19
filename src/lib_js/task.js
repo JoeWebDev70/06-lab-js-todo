@@ -2,9 +2,6 @@
 export function getLocalStorageTasks() {
     let taskArray = new Array();
     //get if local storage contain some tasks 
-    if (!localStorage.getItem("taskArray")) {
-        localStorage.href = 'index.html';
-    }
     if (localStorage.getItem("taskArray") != null) {
         taskArray = JSON.parse(localStorage.getItem("taskArray"));
     }
